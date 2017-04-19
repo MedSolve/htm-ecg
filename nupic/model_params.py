@@ -39,14 +39,14 @@ MODEL_PARAMS = {
             # CPU usage encoder.
             'encoders': {
                 'cpu': {
-                    'n': 2500,
-                    'w': 30,
-                    'name': 'sparse_pass_through',
-                    'forced': 0,
-                    'verbosity': 0
+                    'n': 2500, # number of bits
+                    'w': 30,   # number of active bits after encoding
+                    'name': 'sparse_pass_through', # the name for readability
+                    'forced': 0, # ignore erros
+                    'verbosity': 0 # ??????
                 }
             },
-            
+
             # A dictionary specifying the period for automatically-generated
             # resets from a RecordSensor;
             #

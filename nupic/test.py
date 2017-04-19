@@ -3,6 +3,8 @@
 from nupic.encoders.sparse_pass_through_encoder import SparsePassThroughEncoder
 import model_params
 
+# SOME HELPER: http://nbviewer.jupyter.org/github/numenta/nupic/blob/master/examples/NuPIC%20Walkthrough.ipynb
+
 # encode the image
 enc = SparsePassThroughEncoder()
 

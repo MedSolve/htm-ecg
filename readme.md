@@ -1,6 +1,8 @@
 # HTM ECG implementation in MatLab and nupic
 Data is prepared in matlab for encoding and processeing in nupic
 
+(NOT DONE YET)
+
 # Getting started
 Initially the data is prepared by matlab as follows:
 

@@ -1,7 +1,0 @@
-# HTM ECG implementation in MatLab and nupic
-Data is prepared in matlab for encoding and processeing in nupic
-
-# Getting started
-
-* Use create image to create image from the data source
-* Use imageMap to map that image into a binery
