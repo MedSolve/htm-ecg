@@ -54,7 +54,7 @@ class Layer(object):
         self.tm.compute(self.activeColumns, True)
 
     # predict the pools based upon the data
-    def predict(self, data):
+    def predict(self, data, colOut):
         """learn the spatical and temporal pooling on the dataset"""
 
         # run the spatial pooling
@@ -67,8 +67,13 @@ class Layer(object):
         # run the temporal pooling
         self.tm.compute(self.activeColumns, False)
 
-        # return the result so it can be used in the next layer
-        return self.tm.mapCellsToColumns(self.tm.getActiveCells())
+        # get the active cells
+        cells = self.tm.getActiveCells()
+
+        if colOut is True:
+            return self.tm.mapCellsToColumns(cells)
+        else:
+            return cells
 
 class TopNode(object):
     """Performs classifcation from reference output node """
