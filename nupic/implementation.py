@@ -9,9 +9,6 @@ from nupic.algorithms.sdr_classifier_factory import SDRClassifierFactory
 class Layer(object):
     """One combined layer of spatial and temporal pooling """
 
-    # flag indicating if learning should be done
-    learn = False
-
     # function called on init of layer
     def __init__(self, config):
 
@@ -42,23 +39,35 @@ class Layer(object):
         self.sp.setIterationLearnNum(config['numIterations'])
         self.sp.setIterationNum(config['numIterations'])
 
-    # compute the pools based upon the data
-    def compute(self, data):
-        """Compute the spatical and temporal pooling on the dataset"""
+    # learn the pools based upon the data
+    def learn(self, data):
+        """learn the spatical and temporal pooling on the dataset"""
 
         # run the spatial pooling
         self.sp.compute(
             data,
-            self.learn,
+            True,
             self.activeColumns
         )
 
         # run the temporal pooling
-        self.tm.compute(self.activeColumns, self.learn)
+        self.tm.compute(self.activeColumns, True)
 
+    # predict the pools based upon the data
+    def predict(self, data):
+        """learn the spatical and temporal pooling on the dataset"""
 
-# setIterationLearnNum(iterationLearnNum)
-# setIterationNum(iterationNum)
+        # run the spatial pooling
+        self.sp.compute(
+            data,
+            False,
+            self.activeColumns
+        )
+
+        # run the temporal pooling
+        self.tm.compute(self.activeColumns, False)
+
+        # return the result so it can be used in the next layer
 
 class TopNode(object):
     """Performs classifcation from reference output node """

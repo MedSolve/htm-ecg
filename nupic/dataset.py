@@ -7,7 +7,7 @@ import numpy as np
 random.seed(1)
 
 # creates a random dataset
-def generateSet(dim, datatype):
+def generateRandomSet(dim, datatype):
     """Generate one random dataset"""
 
     # set size
@@ -24,3 +24,8 @@ def generateSet(dim, datatype):
 
     # return the resulting random set
     return data
+
+def getRowSet():
+    """Gets rows from the data source"""
+
+    
