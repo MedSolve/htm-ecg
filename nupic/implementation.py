@@ -68,6 +68,7 @@ class Layer(object):
         self.tm.compute(self.activeColumns, False)
 
         # return the result so it can be used in the next layer
+        return self.tm.mapCellsToColumns(self.tm.getActiveCells())
 
 class TopNode(object):
     """Performs classifcation from reference output node """
@@ -78,11 +79,8 @@ class TopNode(object):
         # save the references and configuration
         self.classifier = SDRClassifierFactory.create(config)
 
-    def learn(self, target, bucketIdx, actValue, recordNum):
+    def learn(self, patternNZ, bucketIdx, actValue, recordNum):
         """Learns to classify the underlying patterns"""
-
-        # get the patterns from target
-        patternNZ = target.getActiveCells()
 
         # The classification
         self.classifier.compute(
@@ -99,11 +97,8 @@ class TopNode(object):
         # returns that learning has been done
         return True
 
-    def predic(self, target, recordNum):
+    def predic(self, patternNZ, recordNum):
         """Predicts the sample based upon the underlying patterns"""
-
-        # get the patterns from target
-        patternNZ = target.getActiveCells()
 
         # inference
         result = self.classifier.compute(
