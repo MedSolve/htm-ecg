@@ -3,74 +3,110 @@
 import numpy as np
 from nupic.research.spatial_pooler import SpatialPooler
 from nupic.research.temporal_memory import TemporalMemory
-from demoData import generateSet
+from nupic.algorithms.sdr_classifier_factory import SDRClassifierFactory
 
-# Configuration
-CONFIG = {
-    'uintType': 'uint32',           # Data type supporting binery 0 and 1
-    'amountActiveCols': 0.02,       # Percentage of columns active in a layer
-    'inputDimensions': (30, 40),  # Dimentions of the input space
-    'columnDimensions': (20, 20),  # Dimentions of the column space
-    'potentialRadius': 0.5,         # Amount of the source seen by columns
-    'inhibition': True,             # Enable the spares distribution by inhibitory effects
-    'permIncrease': 0.01,           # Amount of increase in synaps as they are active
-    'permDecrease': 0.008,          # Amount of decrease in synaps as they are inactive
-    'boostStrength': 0              # Disable boost
-}
 
-# random data test
-DATA = generateSet(CONFIG['inputDimensions'], CONFIG['uintType'])
+class Layer(object):
+    """One combined layer of spatial and temporal pooling """
 
-# Calculate the size of input and col space
-INPUTSIZE = np.array(CONFIG['inputDimensions']).prod()
-COLSIZE = np.array(CONFIG['columnDimensions']).prod()
+    # flag indicating if learning should be done
+    learn = False
 
-# setup the pooler and reference to active column holder
-SP = SpatialPooler(
-    inputDimensions=CONFIG['inputDimensions'],
-    columnDimensions=CONFIG['columnDimensions'],
-    potentialRadius=int(CONFIG['potentialRadius'] * INPUTSIZE),
-    numActiveColumnsPerInhArea=int(CONFIG['amountActiveCols'] * COLSIZE),
-    globalInhibition=CONFIG['inhibition'],
-    synPermActiveInc=CONFIG['permIncrease'],
-    synPermInactiveDec=CONFIG['permDecrease']
-)
+    # function called on init of layer
+    def __init__(self, config):
 
-# find colsize do alculate a length for acitive columns
-COLDIMSIZE = CONFIG['columnDimensions'][0] * CONFIG['columnDimensions'][1]
+        # Calculate the size of input and col space
+        inputsize = np.array(config['inputDimensions']).prod()
+        colsize = np.array(config['columnDimensions']).prod()
 
-# reference to active columns
-ACTIVECOLUMNS = np.zeros(COLDIMSIZE, CONFIG['uintType'])
+        # setup the pooler and reference to active column holder
+        self.sp = SpatialPooler(
+            inputDimensions=config['inputDimensions'],
+            columnDimensions=config['columnDimensions'],
+            potentialRadius=int(config['potentialRadius'] * inputsize),
+            numActiveColumnsPerInhArea=int(
+                config['amountActiveCols'] * colsize),
+            globalInhibition=config['inhibition']
+        )
 
-# RUN THE TP
-SP.compute(
-    DATA,
-    False,
-    ACTIVECOLUMNS
-)
+        # reference to active columns set that is output of the spatial pooler
+        self.activeColumns = np.zeros(colsize, config['uintType'])
 
-tm = TemporalMemory(
-    # Must be the same dimensions as the SP
-    columnDimensions=(2048, ),
-    # How many cells in each mini-column.
-    cellsPerColumn=32,
-    # A segment is active if it has >= activationThreshold connected synapses
-    # that are active due to infActiveState
-    activationThreshold=16,
-    initialPermanence=0.21,
-    connectedPermanence=0.5,
-    # Minimum number of active synapses for a segment to be considered during
-    # search for the best-matching segments.
-    minThreshold=12,
-    # The max number of synapses added to a segment during learning
-    maxNewSynapseCount=20,
-    permanenceIncrement=0.1,
-    permanenceDecrement=0.1,
-    predictedSegmentDecrement=0.0,
-    maxSegmentsPerCell=128,
-    maxSynapsesPerSegment=32,
-    seed=1960
-)
+        # setup the temporal pooler
+        self.tm = TemporalMemory(
+            columnDimensions=config['columnDimensions'],
+            cellsPerColumn=config['cellsPerColumn']
+        )
 
-# debug
-print ACTIVECOLUMNS
+        # setup iterations
+        self.sp.setIterationLearnNum(config['numIterations'])
+        self.sp.setIterationNum(config['numIterations'])
+
+    # compute the pools based upon the data
+    def compute(self, data):
+        """Compute the spatical and temporal pooling on the dataset"""
+
+        # run the spatial pooling
+        self.sp.compute(
+            data,
+            self.learn,
+            self.activeColumns
+        )
+
+        # run the temporal pooling
+        self.tm.compute(self.activeColumns, self.learn)
+
+
+# setIterationLearnNum(iterationLearnNum)
+# setIterationNum(iterationNum)
+
+class TopNode(object):
+    """Performs classifcation from reference output node """
+
+    # function called on init of layer
+    def __init__(self, config):
+
+        # save the references and configuration
+        self.classifier = SDRClassifierFactory.create(config)
+
+    def learn(self, target, bucketIdx, actValue, recordNum):
+        """Learns to classify the underlying patterns"""
+
+        # get the patterns from target
+        patternNZ = target.getActiveCells()
+
+        # The classification
+        self.classifier.compute(
+            recordNum=recordNum,
+            patternNZ=patternNZ,
+            classification={
+                "bucketIdx": bucketIdx,
+                "actValue": actValue
+            },
+            learn=True,
+            infer=False
+        )
+
+        # returns that learning has been done
+        return True
+
+    def predic(self, target, recordNum):
+        """Predicts the sample based upon the underlying patterns"""
+
+        # get the patterns from target
+        patternNZ = target.getActiveCells()
+
+        # inference
+        result = self.classifier.compute(
+            recordNum=recordNum,
+            patternNZ=patternNZ,
+            learn=False,
+            infer=True
+        )
+
+        # Print the top three predictions for 1 steps out.
+        topPredictions = sorted(
+            zip(result[1], result["actualValues"]), reverse=True)[:3]
+
+        # returns the top predictions for sample
+        return topPredictions

@@ -8,6 +8,7 @@ random.seed(1)
 
 # creates a random dataset
 def generateSet(dim, datatype):
+    """Generate one random dataset"""
 
     # set size
     size = dim[0]*dim[1]
