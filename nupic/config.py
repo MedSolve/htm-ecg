@@ -4,7 +4,7 @@ CLASSCONFIG = {
 
 # path to csvs
 SAVEPATH = './data/nupi.res.csv'
-SOURCE = './data.nupi.source.csv'
+SOURCE = './data/nupi.source.csv'
 
 # Data source split
 TRANING = 0.8       # Percentage of total data set
