@@ -1,0 +1,907 @@
+<!-- Field definition -->
+<!ENTITY % MUSEDict "0">
+<!ENTITY % HISDict  "1">
+<!ENTITY % XMLDict  "2">
+<!ENTITY % HL7Item  "-1">
+
+
+<!-- Data Types -->
+<!ENTITY % STRING       "0">
+<!ENTITY % BYTE           "1">
+<!ENTITY % CHAR           "2">
+<!ENTITY % WORD         "3">
+<!ENTITY % IWORD   "4">
+<!ENTITY % DWORD        "5">
+<!ENTITY % INT           "6">
+<!ENTITY % FLOAT   "7">
+<!ENTITY % ENUMERATED   "8">
+<!ENTITY % DATE           "9">
+<!ENTITY % TIME           "10">
+<!ENTITY % BITMAP   "11">
+<!ENTITY % SUBSTRUCT   "12">
+<!ENTITY % IMAGE   "13">
+<!ENTITY % EXTENDEDDATE "14">
+<!ENTITY % BOOL         "15">
+<!ENTITY % TIMET        "16">
+<!ENTITY % BASEEXP      "17">
+
+
+<!ATTLIST PatientID
+   Item CDATA #FIXED '801'
+   DictInd CDATA #FIXED '0'
+   ty CDATA #FIXED  '0'
+   ConType CDATA #FIXED '0'
+   Required CDATA #FIXED '1'>
+
+<!ATTLIST FamilyRelation
+   Item CDATA #FIXED '802'
+   DictInd CDATA #FIXED '0'
+   Table CDATA #FIXED 'FRELATION'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '8'>
+
+<!ATTLIST PatientAge
+   Item CDATA #FIXED '804'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '3'>
+
+<!ATTLIST AgeUnits
+   Item CDATA #FIXED '805'
+   DictInd CDATA #FIXED '0'
+   Table CDATA #FIXED 'AGEUNITS'
+   ConType CDATA #FIXED '2'
+   ty CDATA #FIXED '8'>
+
+<!ATTLIST DateofBirth
+   Item CDATA #FIXED '807'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '9'>
+
+<!ATTLIST Gender
+   Item CDATA #FIXED '808'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '2'
+   Table CDATA #FIXED 'GENDER'
+   ty CDATA #FIXED '8'>
+
+<!ATTLIST Race
+   Item CDATA #FIXED '809'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '2'
+   Table CDATA #FIXED 'RACE'
+   ty CDATA #FIXED '8'>
+
+<!ATTLIST HeightIN
+   Item CDATA #FIXED '810'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '3'>
+
+<!ATTLIST HeightCM
+   Item CDATA #FIXED '811'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '3'>
+
+<!ATTLIST WeightLBS
+   Item CDATA #FIXED '812'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '3'>
+
+<!ATTLIST WeightKG
+   Item CDATA #FIXED '813'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '3'>
+
+<!ATTLIST PatientLastName
+   Item CDATA #FIXED '817'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+
+<!ATTLIST PatientFirstName
+   Item CDATA #FIXED '818'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+
+<!ATTLIST AnalysisAge
+   Item CDATA #FIXED '504'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '3'>
+
+<!ATTLIST AnalysisAgeUnits
+   Item CDATA #FIXED '505'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '2'
+   Table CDATA #FIXED 'AGEUNITS'
+   ty CDATA #FIXED '8'>
+
+<!ATTLIST DataType 
+   Item CDATA #FIXED '901'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '2'
+   Table CDATA #FIXED 'TESTTYPE'
+   ty CDATA #FIXED '8'>
+
+<!ATTLIST Site 
+   Item CDATA #FIXED '902'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+
+<!ATTLIST AcquisitionDevice 
+   Item CDATA #FIXED '903'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+
+<!ATTLIST Status 
+   Item CDATA #FIXED '904'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '2'
+   ty CDATA #FIXED '11'
+   Table CDATA #FIXED 'STATUS'>
+
+<!ATTLIST Priority 
+   Item CDATA #FIXED '905'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '2'
+   ty CDATA #FIXED '2'
+   Table CDATA #FIXED 'PRIORITY'>
+
+<!ATTLIST Location 
+   Item CDATA #FIXED '906'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+
+<!ATTLIST RoomID 
+   Item CDATA #FIXED '907'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+
+<!ATTLIST AcquisitionTime 
+   Item CDATA #FIXED '908'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '10'>
+
+<!ATTLIST AcquisitionDate 
+   Item CDATA #FIXED '909'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '9'>
+
+<!ATTLIST CartNumber 
+   Item CDATA #FIXED '910'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '3'>
+
+<!ATTLIST AcquisitionSoftwareVersion 
+   Item CDATA #FIXED '911'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+
+<!ATTLIST ReferringMDID 
+   Item CDATA #FIXED '920'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '3'>
+
+<!ATTLIST OverreaderID 
+   Item CDATA #FIXED '922'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '3'>
+
+<!ATTLIST FellowID 
+   Item CDATA #FIXED '924'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '3'>
+
+<!ATTLIST AcquisitionTechID 
+   Item CDATA #FIXED '926'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '3'>
+
+<!ATTLIST EditorID 
+   Item CDATA #FIXED '928'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '3'>
+
+<!ATTLIST TestType 
+   Item CDATA #FIXED '930'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+
+<!ATTLIST TestReason 
+   Item CDATA #FIXED '931'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+
+<!ATTLIST OrderingMDLastName 
+   Item CDATA #FIXED '933'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+
+<!ATTLIST OrderingMDFirstName 
+   Item CDATA #FIXED '934'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+
+<!ATTLIST ReferringMDLastName 
+   Item CDATA #FIXED '935'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+
+<!ATTLIST ReferringMDFirstName 
+   Item CDATA #FIXED '936'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+
+<!ATTLIST OverreaderLastName 
+   Item CDATA #FIXED '937'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+
+<!ATTLIST OverreaderFirstName 
+   Item CDATA #FIXED '938'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+
+<!ATTLIST OptionNumber 
+   Item CDATA #FIXED '939'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '3'>
+
+<!ATTLIST FellowLastName 
+   Item CDATA #FIXED '947'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+
+<!ATTLIST FellowFirstName 
+   Item CDATA #FIXED '948'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+
+<!ATTLIST AcquisitionTechLastName 
+   Item CDATA #FIXED '949'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+
+<!ATTLIST AcquisitionTechFirstName 
+   Item CDATA #FIXED '950'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+
+<!ATTLIST EditorLastName 
+   Item CDATA #FIXED '951'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+
+<!ATTLIST EditorFirstName 
+   Item CDATA #FIXED '952'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+
+<!ATTLIST SecondaryID 
+   Item CDATA #FIXED '953'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+
+
+<!ATTLIST Modality 
+   Item CDATA #FIXED '201'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '2'
+   ty CDATA #FIXED '8'
+   Table CDATA #FIXED 'MODALITY'>
+
+<!ATTLIST StatementCount 
+   Item CDATA #FIXED '202'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '2'>
+
+<!ATTLIST LabelText 
+   Item CDATA #FIXED '206'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+
+
+<!ATTLIST StmtFlag  
+   Item CDATA #FIXED '201'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '2'
+   Table CDATA #FIXED 'STATEMENTFLAG'
+   ty CDATA #FIXED '11'>
+
+<!ATTLIST StmtText  
+   Item CDATA #FIXED '204'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+
+
+<!ATTLIST WaveformType 
+   Item CDATA #FIXED '0'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '2'
+   Table CDATA #FIXED 'WAVETYPE'
+   ty CDATA #FIXED '0'>
+
+<!ATTLIST WaveformStartTime 
+   Item CDATA #FIXED '308'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '5'>
+
+<!ATTLIST NumberofLeads 
+   Item CDATA #FIXED '506'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '2'>
+
+<!ATTLIST SampleType 
+   Item CDATA #FIXED '310'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '2'
+   Table CDATA #FIXED 'SAMPLETYPE'
+   ty CDATA #FIXED '0'>
+
+<!ATTLIST SampleBase 
+   Item CDATA #FIXED '311'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '3'>
+
+<!ATTLIST SampleExponent  
+   Item CDATA #FIXED '312'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '2'>
+
+<!ATTLIST HighPassFilter  
+   Item CDATA #FIXED '516'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '3'>
+
+<!ATTLIST LowPassFilter  
+   Item CDATA #FIXED '517'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '3'>
+
+<!ATTLIST ACFilter
+   Item CDATA #FIXED '518'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '11'>
+
+
+<!ATTLIST LeadByteCountTotal 
+   Item CDATA #FIXED '402'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '3'>
+
+<!ATTLIST LeadTimeOffset 
+   Item CDATA #FIXED '403'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '3'>
+
+<!ATTLIST LeadSampleCountTotal 
+   Item CDATA #FIXED '404'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '3'>
+
+<!ATTLIST LeadAmplitudeUnitsPerBit 
+   Item CDATA #FIXED '405'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '17'>
+
+<!ATTLIST LeadAmplitudeUnits 
+   Item CDATA #FIXED '408'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '2'
+   Table CDATA #FIXED 'FUNDUNITID'
+   ty CDATA #FIXED '0'>
+
+<!ATTLIST LeadHighLimit 
+   Item CDATA #FIXED '410'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '5'>
+
+<!ATTLIST LeadLowLimit 
+   Item CDATA #FIXED '411'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '6'>
+
+<!ATTLIST LeadID
+   Item CDATA #FIXED '412'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '2'
+   Table CDATA #FIXED 'LEADID'
+   ty CDATA #FIXED '0'>
+
+<!ATTLIST LeadOffsetFirstSample 
+   Item CDATA #FIXED '416'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '3'>
+
+<!ATTLIST FirstSampleBaseline 
+   Item CDATA #FIXED '418'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '5'>
+
+<!ATTLIST LeadSampleSize 
+   Item CDATA #FIXED '510'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '3'>
+
+<!ATTLIST LeadOff 
+   Item CDATA #FIXED '511'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '15'>
+
+<!ATTLIST BaselineSway
+   Item CDATA #FIXED '512'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '15'>
+
+<!ATTLIST ExcessiveACNoise
+   Item CDATA #FIXED '513'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '15'>
+
+<!ATTLIST MuscleNoise
+   Item CDATA #FIXED '514'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '15'>
+
+<!ATTLIST LeadDataCRC32
+   Item CDATA #FIXED '515'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   Required CDATA #FIXED '1'
+   ty CDATA #FIXED '5'>
+
+<!ATTLIST WaveFormData 
+   Item CDATA #FIXED '419'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '5'
+   Function CDATA #FIXED 'XML_AddRawChannel'
+   Required CDATA #FIXED '1'
+   ty CDATA #FIXED '0'>
+
+<!ATTLIST PaceType 
+   Item CDATA #FIXED '507'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '2'
+   Table CDATA #FIXED 'PACETYPE'
+   ty CDATA #FIXED '5'>
+
+<!ATTLIST IndexOffsets 
+   Item CDATA #FIXED '419'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '5'
+   Function CDATA #FIXED 'XML_AddPacerSpikes'
+   ty CDATA #FIXED '0'>
+
+<!ATTLIST  RequisitionNumber				 
+   Item CDATA #FIXED '4516'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+<!ATTLIST  HISOrderNumber					 
+   Item CDATA #FIXED '4517'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+<!ATTLIST  HISAccountNumber				 
+   Item CDATA #FIXED '4518'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+<!ATTLIST  HISSytemID						 
+   Item CDATA #FIXED '4519'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+<!ATTLIST  Episode						 
+   Item CDATA #FIXED '4520'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+<!ATTLIST  HISTestType					 
+   Item CDATA #FIXED '4521'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+<!ATTLIST  OrderingMDID					 
+   Item CDATA #FIXED '4522'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '3'>
+<!ATTLIST  OrderingMDHISID				 
+   Item CDATA #FIXED '4523'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+<!ATTLIST  HISOrderingMDLastName			 
+   Item CDATA #FIXED '4524'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+<!ATTLIST  HISOrderingMDFirstName			 
+   Item CDATA #FIXED '4525'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+<!ATTLIST  ScheduleTime					 
+   Item CDATA #FIXED '4526'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+<!ATTLIST  OrderTime						 
+   Item CDATA #FIXED '4531'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '16'>
+<!ATTLIST  OrderExpirationTime			 
+   Item CDATA #FIXED '4532'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '16'>
+<!ATTLIST  AdmitTime						 
+   Item CDATA #FIXED '4538'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '10'>
+<!ATTLIST  AdmitDate						 
+   Item CDATA #FIXED '4539'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '9'>
+<!ATTLIST  AdmitDiagnosis					 
+   Item CDATA #FIXED '4540'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+<!ATTLIST  HISLocation					 
+   Item CDATA #FIXED '4541'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+<!ATTLIST  bed							 
+   Item CDATA #FIXED '4542'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+<!ATTLIST  comments						 
+   Item CDATA #FIXED '4545'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+<!ATTLIST  ExtraADTData1					 
+   Item CDATA #FIXED '4546'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+<!ATTLIST  ExtraADTData2					 
+   Item CDATA #FIXED '4547'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+<!ATTLIST  ExtraADTData3					 
+   Item CDATA #FIXED '4548'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+<!ATTLIST  ExtraADTData4					 
+   Item CDATA #FIXED '4549'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+<!ATTLIST  ExtraOrderData1				 
+   Item CDATA #FIXED '4550'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+<!ATTLIST  ExtraOrderData2				 
+   Item CDATA #FIXED '4551'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+<!ATTLIST  ExtraOrderData3				 
+   Item CDATA #FIXED '4552'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+<!ATTLIST  ExtraOrderData4				 
+   Item CDATA #FIXED '4553'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+<!ATTLIST  ExtraAccountData1				 
+   Item CDATA #FIXED '4554'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+<!ATTLIST  ExtraAccountData2				 
+   Item CDATA #FIXED '4557'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+<!ATTLIST  ExtraAccountData3				 
+   Item CDATA #FIXED '4558'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+<!ATTLIST  ExtraAccountData4				 
+   Item CDATA #FIXED '4559'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+<!ATTLIST  AttendingMDID					 
+   Item CDATA #FIXED '4543'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '3'>
+<!ATTLIST  AttendingMDHISID				 
+   Item CDATA #FIXED '4544'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+<!ATTLIST  AttendingMDLastName			 
+   Item CDATA #FIXED '4555'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+<!ATTLIST  AttendingMDFirstName			 
+   Item CDATA #FIXED '4556'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+<!ATTLIST  PriorHISAccountNumber			 
+   Item CDATA #FIXED '4561'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+<!ATTLIST  AlternateVisitID				 
+   Item CDATA #FIXED '4562'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+<!ATTLIST  HISDisposition					 
+   Item CDATA #FIXED '4564'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+<!ATTLIST  PatientDischargeDate			 
+   Item CDATA #FIXED '4565'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '9'>
+<!ATTLIST  PatientDischargeTime			 
+   Item CDATA #FIXED '4566'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '10'>
+<!ATTLIST  AdmitSource					 
+   Item CDATA #FIXED '4567'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+<!ATTLIST  DischargeDisposition			 
+   Item CDATA #FIXED '4568'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+<!ATTLIST  PrimaryDiagnosticCode			 
+   Item CDATA #FIXED '4569'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+<!ATTLIST  SecondaryDiagnosticCode		 
+   Item CDATA #FIXED '4570'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+<!ATTLIST  TertiaryDiagnosticCode			 
+   Item CDATA #FIXED '4571'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+<!ATTLIST  OtherDiagnosticCode			 
+   Item CDATA #FIXED '4572'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+<!ATTLIST  CurrentDiagnosis				 
+   Item CDATA #FIXED '4573'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+<!ATTLIST  ServicingFacility				 
+   Item CDATA #FIXED '4574'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+<!ATTLIST  AdmittingMDID					 
+   Item CDATA #FIXED '4575'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '3'>
+<!ATTLIST  AdmittingMDHISID				 
+   Item CDATA #FIXED '4584'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+<!ATTLIST  AdmittingMDLastName			 
+   Item CDATA #FIXED '4577'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+<!ATTLIST  AdmittingMDFirstName			 
+   Item CDATA #FIXED '4578'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+<!ATTLIST  ConsultingMDID					 
+   Item CDATA #FIXED '4579'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '3'>
+<!ATTLIST  ConsultingMDHISID				 
+   Item CDATA #FIXED '4583'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+<!ATTLIST  ConsultingMDLastName			 
+   Item CDATA #FIXED '4581'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+<!ATTLIST  ConsultingMDFirstName			 
+   Item CDATA #FIXED '4582'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+<!ATTLIST  ReferringMDHISID				 
+   Item CDATA #FIXED '4585'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+<!ATTLIST  HospitalService				 
+   Item CDATA #FIXED '4588'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+<!ATTLIST  AmbulatoryStatus				 
+   Item CDATA #FIXED '4589'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+<!ATTLIST  AdmissionType					 
+   Item CDATA #FIXED '4590'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+<!ATTLIST  DangerCode						 
+   Item CDATA #FIXED '4592'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+<!ATTLIST  AltRequisitionNumber			 
+   Item CDATA #FIXED '4595'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+<!ATTLIST  PlacersHISID					 
+   Item CDATA #FIXED '4596'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+<!ATTLIST  PlacersLastName				 
+   Item CDATA #FIXED '4598'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+<!ATTLIST  PlacersFirstName				 
+   Item CDATA #FIXED '4599'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+<!ATTLIST  OrderPlacementDate				 
+   Item CDATA #FIXED '4600'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '9'>
+<!ATTLIST  OrderPlacementTime				 
+   Item CDATA #FIXED '4601'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '10'>
+<!ATTLIST  ReasonForTest					 
+   Item CDATA #FIXED '4602'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+ 
+ 
+<!ATTLIST ImageType 
+   Item CDATA #FIXED '601'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '3'>
+ 
+
+<!ATTLIST ImageTitle 
+   Item CDATA #FIXED '603'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+ 
+<!ATTLIST ImageComment 
+   Item CDATA #FIXED '604'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+ 
+<!ATTLIST ImageDataCRC32 
+   Item CDATA #FIXED '602'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '5'>
+ 
+<!ATTLIST ImageData 
+   Item CDATA #FIXED '419'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '3'
+   Function CDATA #FIXED 'XML_StoreImage'
+   ty CDATA #FIXED '0'>
+ 
+ 

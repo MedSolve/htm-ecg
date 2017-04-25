@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ENTITY % I2DTD SYSTEM "I2.dtd">
+%I2DTD;
+
+<!ENTITY % holterfield SYSTEM "holterfield.dtd">
+%holterfield;
+
+<!ELEMENT HolterECG (PatientDemographics, TestDemographics, Order?, 
+HolterECGMeasurements?, Diagnosis?)>
+
+
+<!ELEMENT HolterECGMeasurements (NumChannelsAnalyzed,STDataChannel,AcqDuration,
+AnalysisDuration,NumQRSComplexes,NumQRSComplexesAF,AFLPercent?,AFPercent?,
+JunctPercent,VEComplexes,SVEComplexes,VEIsolated,VEBigeminal,VECouplets,
+VERunCount,VEBeatsInRun,LongVERun,FastVERun,NumSVEIsolated,NumSVECouplets,
+SVERunCount,SVEBeatsInRun,LongSVERun,FastSVERun,MinHeart,MaxHeart,
+STChan1,STChan2,STChan3,NumPacedBeats,NumPacedFusionBeats,PacedNPacedFusionBeats,
+FailToSenseCount,FailToCaptureCount,(RRIntervalInterval,RRIntervalTime,RRIntervalDate)?,AveHeartRate,PRInterval,
+HolterQRSDuration,QTInterval,TapeQuality,LengthofHolterMeas?,InstitutionName1?,InstitutionName2?,
+InstitutionName3?,InstitutionName4?,MDAddress1?,MDAddress2?,
+Filters?,Leads?,Seerid?) >
+<!ELEMENT NumChannelsAnalyzed    (#PCDATA)  >
+<!ELEMENT STDataChannel  (#PCDATA)  >
+<!ELEMENT AcqDuration    (#PCDATA)  >
+<!ELEMENT AnalysisDuration (#PCDATA)  >
+<!ELEMENT NumQRSComplexes   (#PCDATA)  >
+<!ELEMENT NumQRSComplexesAF (#PCDATA)  >
+<!ELEMENT AFLPercent     (#PCDATA)  >
+<!ELEMENT AFPercent      (#PCDATA)  >
+<!ELEMENT JunctPercent   (#PCDATA)  >
+<!ELEMENT VEComplexes    (#PCDATA)  >
+<!ELEMENT SVEComplexes   (#PCDATA)  >
+<!ELEMENT VEIsolated     (#PCDATA)  >
+<!ELEMENT VEBigeminal    (#PCDATA)  >
+<!ELEMENT VECouplets     (#PCDATA)  >
+<!ELEMENT VERunCount     (#PCDATA)  >
+<!ELEMENT VEBeatsInRun   (#PCDATA)  >
+<!ELEMENT LongVERun     (LongVERunRate,LongVERunLength,LongVERunTime,LongVERunDate)>
+<!ELEMENT FastVERun     (FastVERunRate,FastVERunLength,FastVERunTime,FastVERunDate)>
+<!ELEMENT NumSVEIsolated    (#PCDATA)  >
+<!ELEMENT NumSVECouplets    (#PCDATA)  >
+<!ELEMENT SVERunCount    (#PCDATA)  >
+<!ELEMENT SVEBeatsInRun  (#PCDATA)  >
+<!ELEMENT LongSVERun    (LongSVERunRate,LongSVERunLength,LongSVERunTime,LongSVERunDate)>
+<!ELEMENT FastSVERun    (FastSVERunRate,FastSVERunLength,FastSVERunTime,FastSVERunDate)>
+<!ELEMENT MinHeart  (MinHeartRate,MinHeartRateTime,MinHeartRateDate)>
+<!ELEMENT MaxHeart  (MaxHeartRate,MaxHeartRateTime,MaxHeartRateDate)>
+<!ELEMENT STChan1       (STChan1Max,STChan1Min,STChan1MaxTime,STChan1MaxDate,STChan1MinTime,STChan1MinDate)>
+<!ELEMENT STChan2       (STChan2Max,STChan2Min,STChan2MaxTime,STChan2MaxDate,STChan2MinTime,STChan2MinDate)>
+<!ELEMENT STChan3       (STChan3Max,STChan3Min,STChan3MaxTime,STChan3MaxDate,STChan3MinTime,STChan3MinDate)>
+<!ELEMENT NumPacedBeats     (#PCDATA)  >
+<!ELEMENT NumPacedFusionBeats (#PCDATA)  >
+<!ELEMENT PacedNPacedFusionBeats (#PCDATA)  >
+<!ELEMENT FailToSenseCount (#PCDATA)  >
+<!ELEMENT FailToCaptureCount (#PCDATA)  >
+<!ELEMENT RRIntervalInterval     (#PCDATA)  >
+<!ELEMENT RRIntervalTime     (#PCDATA)  >
+<!ELEMENT RRIntervalDate     (#PCDATA)  >
+<!ELEMENT AveHeartRate   (#PCDATA)  >
+<!ELEMENT PRInterval     (#PCDATA)  >
+<!ELEMENT HolterQRSDuration    (#PCDATA)  >
+<!ELEMENT QTInterval     (#PCDATA)  >
+<!ELEMENT TapeQuality   (#PCDATA)  >
+<!ELEMENT LengthofHolterMeas  (#PCDATA) >
+<!ELEMENT InstitutionName1 (#PCDATA)  >
+<!ELEMENT InstitutionName2 (#PCDATA)  >
+<!ELEMENT InstitutionName3 (#PCDATA)  >
+<!ELEMENT InstitutionName4 (#PCDATA)  >
+<!ELEMENT MDAddress1  (#PCDATA)  >
+<!ELEMENT MDAddress2  (#PCDATA)  >
+<!ELEMENT Filters  (#PCDATA)  >
+<!ELEMENT Leads   (#PCDATA)  >
+<!ELEMENT Seerid  (#PCDATA)  >
+
+<!ELEMENT LongVERunRate  (#PCDATA)  >
+<!ELEMENT LongVERunLength  (#PCDATA)  >
+<!ELEMENT LongVERunTime  (#PCDATA)  >
+<!ELEMENT LongVERunDate   (#PCDATA)  >
+<!ELEMENT FastVERunRate  (#PCDATA)  >
+<!ELEMENT FastVERunLength  (#PCDATA)  >
+<!ELEMENT FastVERunTime  (#PCDATA)  >
+<!ELEMENT FastVERunDate  (#PCDATA)  >
+
+<!ELEMENT LongSVERunRate  (#PCDATA)  >
+<!ELEMENT LongSVERunLength  (#PCDATA)  >
+<!ELEMENT LongSVERunTime  (#PCDATA)  >
+<!ELEMENT LongSVERunDate  (#PCDATA)  >
+<!ELEMENT FastSVERunRate  (#PCDATA)  >
+<!ELEMENT FastSVERunLength  (#PCDATA)  >
+<!ELEMENT FastSVERunTime  (#PCDATA)  >
+<!ELEMENT FastSVERunDate  (#PCDATA)  >
+<!ELEMENT MinHeartRate  (#PCDATA)  >
+<!ELEMENT MinHeartRateTime  (#PCDATA)  >
+<!ELEMENT MinHeartRateDate  (#PCDATA)  >
+<!ELEMENT MaxHeartRate  (#PCDATA)  >
+<!ELEMENT MaxHeartRateTime  (#PCDATA)  >
+<!ELEMENT MaxHeartRateDate  (#PCDATA)  >
+<!ELEMENT STChan1Max  (#PCDATA)  >
+<!ELEMENT STChan1Min  (#PCDATA)  >
+<!ELEMENT STChan1MaxTime  (#PCDATA)  >
+<!ELEMENT STChan1MaxDate  (#PCDATA)  >
+<!ELEMENT STChan1MinTime  (#PCDATA)  >
+<!ELEMENT STChan1MinDate  (#PCDATA)  >
+<!ELEMENT STChan2Max  (#PCDATA)  >
+<!ELEMENT STChan2Min  (#PCDATA)  >
+<!ELEMENT STChan2MaxTime  (#PCDATA)  >
+<!ELEMENT STChan2MaxDate  (#PCDATA)  >
+<!ELEMENT STChan2MinTime  (#PCDATA)  >
+<!ELEMENT STChan2MinDate  (#PCDATA)  >
+<!ELEMENT STChan3Max  (#PCDATA)  >
+<!ELEMENT STChan3Min  (#PCDATA)  >
+<!ELEMENT STChan3MaxTime  (#PCDATA)  >
+<!ELEMENT STChan3MaxDate  (#PCDATA)  >
+<!ELEMENT STChan3MinTime  (#PCDATA)  >
+<!ELEMENT STChan3MinDate  (#PCDATA)  >

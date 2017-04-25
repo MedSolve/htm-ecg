@@ -1,0 +1,387 @@
+<!-- Field definition -->
+<!ENTITY % MUSEDict "0">
+<!ENTITY % HISDict  "1">
+<!ENTITY % XMLDict  "2">
+<!ENTITY % HL7Item  "-1">
+
+<!-- Conversions -->
+<!ENTITY % NOCONV      "0">
+<!ENTITY % ENUM        "1">
+<!ENTITY % TRANSTABLE  "2">
+<!ENTITY % STDFUNC     "3">
+<!ENTITY % CUSTFUNC    "4">
+<!ENTITY % WAVEFUNC    "5">
+<!ENTITY % CONSTANT    "6">
+
+<!-- Data Types -->
+<!ENTITY % STRING         "0">
+<!ENTITY % BYTE	         "1">
+<!ENTITY % CHAR	         "2">
+<!ENTITY % WORD           "3">
+<!ENTITY % IWORD          "4">
+<!ENTITY % DWORD          "5">
+<!ENTITY % INT            "6">
+<!ENTITY % FLOAT          "7">
+<!ENTITY % ENUMERATED     "8">
+<!ENTITY % DATE           "9">
+<!ENTITY % TIME           "10">
+<!ENTITY % BITMAP         "11">
+<!ENTITY % SUBSTRUCT      "12">
+<!ENTITY % IMAGE          "13">
+<!ENTITY % EXTENDEDDATE   "14">
+<!ENTITY % BOOL           "15">
+<!ENTITY % TIMET          "16">
+<!ENTITY % BASEEXP        "17">
+<!ENTITY % STHRSLOP      "20"> 
+
+
+<!ATTLIST DemoBitmap 
+   Item CDATA #FIXED '600'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '11'>
+
+<!ATTLIST Protocol 
+   Item CDATA #FIXED '601'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+
+<!ATTLIST StressMeasMisc 
+   Item CDATA #FIXED '602'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '2'
+   Table CDATA #FIXED 'MISCMEAS'
+   ty CDATA #FIXED '8'>
+
+<!ATTLIST StressTestType 
+   Item CDATA #FIXED '603'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '2'
+   Table CDATA #FIXED 'STRESSTYPE'
+   ty CDATA #FIXED '8'>
+
+<!ATTLIST Criteria 
+   Item CDATA #FIXED '604'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '2'
+   Table CDATA #FIXED 'CRITERIA'
+   ty CDATA #FIXED '8'>
+
+<!ATTLIST MedianFormationMethod 
+   Item CDATA #FIXED '605'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '2'
+   Table CDATA #FIXED 'MEDIANMETHOD'
+   ty CDATA #FIXED '8'>
+
+<!ATTLIST LineFilter 
+   Item CDATA #FIXED '606'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '2'
+   Table CDATA #FIXED 'LINEFILTER'
+   ty CDATA #FIXED '8'>
+
+<!ATTLIST HighPassFilter 
+   Item CDATA #FIXED '607'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '4'>
+
+<!ATTLIST LowPassFilter 
+   Item CDATA #FIXED '608'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '4'>
+
+<!ATTLIST MaxWorkLoad 
+   Item CDATA #FIXED '609'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '4'>
+
+<!ATTLIST TimeExercisePhase 
+   Item CDATA #FIXED '610'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '4'>
+
+<!ATTLIST MaxSystolicBP 
+   Item CDATA #FIXED '611'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '4'>
+
+<!ATTLIST MaxDiastolicBP 
+   Item CDATA #FIXED '612'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '4'>
+
+<!ATTLIST MaxHR 
+   Item CDATA #FIXED '613'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '4'>
+
+<!ATTLIST MaxPredHR 
+   Item CDATA #FIXED '614'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '4'>
+
+<!ATTLIST PercentTargetHR 
+   Item CDATA #FIXED '615'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '4'>
+
+<!ATTLIST STAreaV5 
+   Item CDATA #FIXED '616'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '4'>
+
+<!ATTLIST SlopeAreaV5 
+   Item CDATA #FIXED '617'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '4'>
+
+<!ATTLIST STAreaAVF 
+   Item CDATA #FIXED '618'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '4'>
+
+<!ATTLIST SlopeAreaAVF 
+   Item CDATA #FIXED '619'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '4'>
+
+<!ATTLIST HTESScore 
+   Item CDATA #FIXED '620'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '4'>
+
+<!ATTLIST ValidHTES  
+   Item CDATA #FIXED '621'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '11'>
+
+<!ATTLIST ReliableHTES  
+   Item CDATA #FIXED '622'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '11'>
+
+
+<!ATTLIST Slope  
+   Item CDATA #FIXED '701'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '5'>
+
+<!ATTLIST Intercept
+   Item CDATA #FIXED '702'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '5'>
+
+<!ATTLIST Corr
+   Item CDATA #FIXED '703'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '5'>
+
+<!ATTLIST Points
+   Item CDATA #FIXED '704'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '1'>
+
+<!ATTLIST Lead
+   Item CDATA #FIXED '705'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '1'>
+
+<!ATTLIST ControlBits
+   Item CDATA #FIXED '706'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '1'>
+
+<!ATTLIST Pad
+   Item CDATA #FIXED '707'
+   DictInd CDATA #FIXED '2'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '1'>
+
+<!ATTLIST SlopeI 
+   Item CDATA #FIXED '623'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '20'>
+
+<!ATTLIST SlopeII 
+   Item CDATA #FIXED '624'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '20'>
+
+<!ATTLIST SlopeIII
+   Item CDATA #FIXED '625'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '20'>
+
+<!ATTLIST SlopeaVR
+   Item CDATA #FIXED '626'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '20'>
+
+<!ATTLIST SlopeaVL
+   Item CDATA #FIXED '627'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '20'>
+
+<!ATTLIST SlopeaVF
+   Item CDATA #FIXED '628'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '20'>
+
+<!ATTLIST SlopeV1 
+   Item CDATA #FIXED '629'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '20'>
+
+<!ATTLIST SlopeV2 
+   Item CDATA #FIXED '630'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '20'>
+
+<!ATTLIST SlopeV3 
+   Item CDATA #FIXED '631'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '20'>
+
+<!ATTLIST SlopeV4 
+   Item CDATA #FIXED '632'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '20'>
+
+<!ATTLIST SlopeV5 
+   Item CDATA #FIXED '633'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '20'>
+
+<!ATTLIST SlopeV6 
+   Item CDATA #FIXED '634'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '20'>
+
+<!ATTLIST SlopeAux1 
+   Item CDATA #FIXED '635'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '20'>
+
+<!ATTLIST SlopeAux2 
+   Item CDATA #FIXED '636'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '20'>
+
+<!ATTLIST SlopeAux3 
+   Item CDATA #FIXED '637'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '20'>
+
+<!ATTLIST SlopeAux4 
+   Item CDATA #FIXED '638'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '20'>
+
+<!ATTLIST SlopeAux5 
+   Item CDATA #FIXED '639'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '20'>
+
+<!ATTLIST SlopeAux6 
+   Item CDATA #FIXED '640'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '20'>
+
+<!ATTLIST SlopeAux7 
+   Item CDATA #FIXED '641'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '20'>
+
+<!ATTLIST SlopeAux8 
+   Item CDATA #FIXED '642'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '20'>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!ATTLIST TimeExercise
+   Item CDATA #FIXED '643'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '10'>
+
+<!ATTLIST PharmacologicalStress
+   Item CDATA #FIXED '644'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '15'>
+
+<!ATTLIST WorkloadUnits
+   Item CDATA #FIXED '645'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+
+<!ATTLIST TimeExerciseLabel
+   Item CDATA #FIXED '646'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+
+

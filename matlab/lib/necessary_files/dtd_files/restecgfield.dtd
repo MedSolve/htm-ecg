@@ -1,0 +1,230 @@
+<!ATTLIST SystolicBP 
+   Item CDATA #FIXED '550'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '3'>
+
+<!ATTLIST DiastolicBP 
+   Item CDATA #FIXED '551'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '3'>
+
+<!ATTLIST VentricularRate 
+   Item CDATA #FIXED '552'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '3'>
+
+<!ATTLIST AtrialRate 
+   Item CDATA #FIXED '553'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '3'>
+
+<!ATTLIST PRInterval 
+   Item CDATA #FIXED '554'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '3'>
+
+<!ATTLIST QRSDuration 
+   Item CDATA #FIXED '555'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '3'>
+
+<!ATTLIST QTInterval 
+   Item CDATA #FIXED '556'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '3'>
+
+<!ATTLIST PAxis 
+   Item CDATA #FIXED '558'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '4'>
+
+<!ATTLIST RAxis 
+   Item CDATA #FIXED '559'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '4'>
+
+<!ATTLIST TAxis 
+   Item CDATA #FIXED '560'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '4'>
+
+<!ATTLIST QRSCount 
+   Item CDATA #FIXED '561'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '3'>
+
+<!ATTLIST QOnset 
+   Item CDATA #FIXED '562'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '3'>
+
+<!ATTLIST QOffset 
+   Item CDATA #FIXED '563'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '3'>
+
+<!ATTLIST POnset 
+   Item CDATA #FIXED '564'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '3'>
+
+<!ATTLIST POffset 
+   Item CDATA #FIXED '565'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '3'>
+
+<!ATTLIST TOffset 
+   Item CDATA #FIXED '566'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '3'>
+
+<!ATTLIST ECGSampleBase 
+   Item CDATA #FIXED '571'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '3'>
+
+<!ATTLIST ECGSampleExponent 
+   Item CDATA #FIXED '572'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '1'>
+
+<!ATTLIST PharmaInvestigatorID 
+   Item CDATA #FIXED '15000'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+   
+<!ATTLIST PharmaDoseType
+   Item CDATA #FIXED '15001'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '6'>
+   
+<!ATTLIST PharmaRRinterval
+   Item CDATA #FIXED '15002'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+   
+<!ATTLIST PharmaVisitNumber
+   Item CDATA #FIXED '15003'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+   
+<!ATTLIST PharmaVisitType
+   Item CDATA #FIXED '15004'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+   
+<!ATTLIST PharmaUniqueECGID
+   Item CDATA #FIXED '15005'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+   
+<!ATTLIST PharmaPPinterval
+   Item CDATA #FIXED '15006'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '6'>
+   
+<!ATTLIST PharmaExtendedCartID
+   Item CDATA #FIXED '15007'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+   
+<!ATTLIST PharmaCartID
+   Item CDATA #FIXED '15008'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+   
+<!ATTLIST PharmaProjectCode
+   Item CDATA #FIXED '15009'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+   
+<!ATTLIST PharmaQuestion1
+   Item CDATA #FIXED '15011'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+   
+<!ATTLIST PharmaAnswer1
+   Item CDATA #FIXED '15012'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+   
+<!ATTLIST PharmaQuestion2
+   Item CDATA #FIXED '15014'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+   
+<!ATTLIST PharmaAnswer2
+   Item CDATA #FIXED '15015'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+   
+<!ATTLIST PharmaQuestion3
+   Item CDATA #FIXED '15017'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+   
+<!ATTLIST PharmaAnswer3
+   Item CDATA #FIXED '15018'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+   
+<!ATTLIST PharmaQuestion4
+   Item CDATA #FIXED '15020'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+   
+<!ATTLIST PharmaAnswer4
+   Item CDATA #FIXED '15021'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+   
+<!ATTLIST PharmaQuestion5
+   Item CDATA #FIXED '15023'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+   
+<!ATTLIST PharmaAnswer5
+   Item CDATA #FIXED '15024'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+
+
+

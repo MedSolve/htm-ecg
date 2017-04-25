@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ENTITY % I2DTD SYSTEM "I2.dtd">
+%I2DTD;
+
+<!ENTITY % stressfield SYSTEM "exercisefield.dtd">
+%stressfield;
+
+<!ELEMENT StressECG (PatientDemographics, TestDemographics, Order?, 
+StressECGMeasurements?, ExerciseSummaryDetails?, Diagnosis?)>
+
+<!ELEMENT Trend (Image*)>
+<!ELEMENT Median (Image*)>
+
+<!ELEMENT StressECGMeasurements (Protocol, StressMeasMisc?, StressTestType?, 
+Criteria?, MedianFormationMethod?, LineFilter?, StressHighPassFilter?, StressLowPassFilter?,
+MaxWorkLoad, TimeExercisePhase, MaxSystolicBP?, MaxDiastolicBP?, MaxHR, 
+MaxPredHR, (STAreaV5?, SlopeAreaV5?, STAreaAVF?, 
+SlopeAreaAVF?, HTESScore?, ValidHTES?, ReliableHTES?)?,
+(SlopeI?, SlopeII?, SlopeIII?, SlopeaVR?, SlopeaVL?, SlopeaVF?, SlopeV1?, SlopeV2?, SlopeV3?, SlopeV4?, SlopeV5?, SlopeV6?, SlopeAux1?, SlopeAux2?, SlopeAux3?, 
+SlopeAux4?, SlopeAux5?, SlopeAux6?,SlopeAux7?, SlopeAux8?)?, 
+TimeExercise?, WorkloadUnits?, TimeExerciseLabel?)>
+
+<!ELEMENT Protocol (#PCDATA)>
+<!ELEMENT StressMeasMisc (#PCDATA)>
+<!ELEMENT StressTestType (#PCDATA)>
+<!ELEMENT Criteria (#PCDATA)>
+<!ELEMENT MedianFormationMethod (#PCDATA)>
+<!ELEMENT LineFilter (#PCDATA)>
+<!ELEMENT StressHighPassFilter (#PCDATA)>
+
+<!ELEMENT StressLowPassFilter (#PCDATA)>
+<!ELEMENT MaxWorkLoad (#PCDATA)>
+<!ELEMENT TimeExercisePhase (#PCDATA)>
+<!ELEMENT MaxSystolicBP (#PCDATA)>
+<!ELEMENT MaxDiastolicBP (#PCDATA)>
+<!ELEMENT MaxHR (#PCDATA)>
+<!ELEMENT MaxPredHR (#PCDATA)>
+<!ELEMENT STAreaV5 (#PCDATA)>
+<!ELEMENT SlopeAreaV5 (#PCDATA)>
+<!ELEMENT STAreaAVF (#PCDATA)>
+<!ELEMENT SlopeAreaAVF (#PCDATA)>
+<!ELEMENT HTESScore (#PCDATA)>
+<!ELEMENT ValidHTES (#PCDATA)>
+<!ELEMENT ReliableHTES (#PCDATA)>
+
+<!ELEMENT SlopeI (Slope, Intercept, Corr, Points, Lead, ControlBits)>
+<!ELEMENT SlopeII ( Slope,  Intercept,  Corr,  Points,  Lead,  ControlBits)>
+<!ELEMENT SlopeIII ( Slope,  Intercept,  Corr,  Points,  Lead,  ControlBits)>
+<!ELEMENT SlopeaVR  (Slope, Intercept, Corr, Points, Lead, ControlBits)>
+<!ELEMENT SlopeaVL (Slope, Intercept, Corr, Points, Lead, ControlBits)>
+<!ELEMENT SlopeaVF (Slope, Intercept, Corr, Points, Lead, ControlBits)>
+<!ELEMENT SlopeV1  (Slope, Intercept, Corr, Points, Lead, ControlBits)>
+<!ELEMENT SlopeV2  (Slope, Intercept, Corr, Points, Lead, ControlBits)>
+<!ELEMENT SlopeV3  (Slope, Intercept, Corr, Points, Lead, ControlBits)>
+<!ELEMENT SlopeV4  (Slope, Intercept, Corr, Points, Lead, ControlBits)>
+<!ELEMENT SlopeV5  (Slope, Intercept, Corr, Points, Lead, ControlBits)>
+<!ELEMENT SlopeV6  (Slope, Intercept, Corr, Points, Lead, ControlBits)>
+<!ELEMENT SlopeAux1 (Slope, Intercept, Corr, Points, Lead, ControlBits)>
+<!ELEMENT SlopeAux2 (Slope, Intercept, Corr, Points, Lead, ControlBits)>
+<!ELEMENT SlopeAux3 (Slope, Intercept, Corr, Points, Lead, ControlBits)>
+<!ELEMENT SlopeAux4 (Slope, Intercept, Corr, Points, Lead, ControlBits)>
+<!ELEMENT SlopeAux5 (Slope, Intercept, Corr, Points, Lead, ControlBits)>
+<!ELEMENT SlopeAux6 (Slope, Intercept, Corr, Points, Lead, ControlBits)>
+<!ELEMENT SlopeAux7 (Slope, Intercept, Corr, Points, Lead, ControlBits)>
+<!ELEMENT SlopeAux8 (Slope, Intercept, Corr, Points, Lead, ControlBits)>
+
+<!ELEMENT Slope (#PCDATA)>
+<!ELEMENT Intercept (#PCDATA)>
+<!ELEMENT Corr (#PCDATA)>
+<!ELEMENT Points (#PCDATA)>
+<!ELEMENT Lead (#PCDATA)>
+<!ELEMENT ControlBits (#PCDATA)>
+<!ELEMENT Pad (#PCDATA)>
+
+<!ELEMENT TimeExercise (#PCDATA)>
+<!ELEMENT WorkloadUnits (#PCDATA)>
+<!ELEMENT TimeExerciseLabel (#PCDATA)>
+

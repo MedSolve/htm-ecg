@@ -1,0 +1,21 @@
+<XMLSettings>
+<ECGFormat>standard</ECGFormat>
+<TransformationMatrix>kors</TransformationMatrix>
+<LeadConfiguration>idealized</LeadConfiguration>
+<OrtoPlot>0</OrtoPlot>
+<ScaleTime>1</ScaleTime>
+<ScaleAmplitude>1</ScaleAmplitude>
+<PlotYRange>3000</PlotYRange>
+<ZoomValue>0</ZoomValue>
+<CheckboxVCGTWave>0</CheckboxVCGTWave>
+<CheckboxVCGQRSTAxis>1</CheckboxVCGQRSTAxis>
+<ExcelFilename></ExcelFilename>
+<OrtoPlotLeadSpecific>1</OrtoPlotLeadSpecific>
+<SmoothSpan>15</SmoothSpan>
+<LastXMLFolder>E:\ECG data ikke i ECG data mappen\Peter Lyngø patienter LBBB fra MUSE</LastXMLFolder>
+<SmoothPlot>0</SmoothPlot>
+<RegrPlot>0</RegrPlot>
+<SiteNumberMUSE></SiteNumberMUSE>
+<SiteNameMUSE></SiteNameMUSE>
+<XMLMoveFolder></XMLMoveFolder>
+</XMLSettings>

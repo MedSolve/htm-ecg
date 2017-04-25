@@ -1,0 +1,476 @@
+<!ATTLIST NumChannelsAnalyzed 
+   Item CDATA #FIXED '2300'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '1'>
+
+<!ATTLIST STDataChannel 
+   Item CDATA #FIXED '2301'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '1'>
+
+<!ATTLIST AcqDuration
+   Item CDATA #FIXED '2302'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '10'>
+
+<!ATTLIST AnalysisDuration
+   Item CDATA #FIXED '2303'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '10'>
+
+<!ATTLIST NumQRSComplexes
+   Item CDATA #FIXED '2304'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '5'>
+
+<!ATTLIST NumQRSComplexesAF
+   Item CDATA #FIXED '2305'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '5'>
+
+<!ATTLIST AFLPercent 
+   Item CDATA #FIXED '2306'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '1'>
+
+<!ATTLIST AFPercent   
+   Item CDATA #FIXED '2307'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '1'>
+
+<!ATTLIST JunctPercent 
+   Item CDATA #FIXED '2308'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '1'>
+
+<!ATTLIST VEComplexes 
+   Item CDATA #FIXED '2309'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '5'>
+
+<!ATTLIST SVEComplexes
+   Item CDATA #FIXED '2310'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '5'>
+
+<!ATTLIST VEIsolated
+   Item CDATA #FIXED '2311'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '5'>
+
+<!ATTLIST VEBigeminal 
+   Item CDATA #FIXED '2312'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '5'>
+
+<!ATTLIST VECouplets    
+   Item CDATA #FIXED '2313'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '5'>
+
+<!ATTLIST VERunCount    
+   Item CDATA #FIXED '2314'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '5'>
+
+
+<!ATTLIST VEBeatsInRun  
+   Item CDATA #FIXED '2315'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '5'>
+
+
+<!ATTLIST NumSVEIsolated   
+   Item CDATA #FIXED '2326'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '5'>
+
+<!ATTLIST NumSVECouplets   
+   Item CDATA #FIXED '2327'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '5'>
+
+<!ATTLIST SVERunCount   
+   Item CDATA #FIXED '2328'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '5'>
+
+<!ATTLIST SVEBeatsInRun 
+   Item CDATA #FIXED '2329'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '5'>
+
+<!ATTLIST NumPacedBeats    
+   Item CDATA #FIXED '2370'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '5'>
+
+<!ATTLIST NumPacedFusionBeats
+   Item CDATA #FIXED '2371'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '5'>
+
+<!ATTLIST PacedNPacedFusionBeats
+   Item CDATA #FIXED '2369'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '5'>
+
+<!ATTLIST FailToSenseCount
+   Item CDATA #FIXED '2372'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '5'>
+
+<!ATTLIST FailToCaptureCount
+   Item CDATA #FIXED '2373'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '5'>
+
+<!ATTLIST RRIntervalInterval    
+   Item CDATA #FIXED '2375'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '7'>
+
+<!ATTLIST RRIntervalTime    
+   Item CDATA #FIXED '2376'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '10'>
+
+<!ATTLIST RRIntervalDate    
+   Item CDATA #FIXED '2377'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '9'>
+
+<!ATTLIST AveHeartRate  
+   Item CDATA #FIXED '2378'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '3'>
+
+<!ATTLIST PRInterval    
+   Item CDATA #FIXED '2379'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '3'>
+
+<!ATTLIST HolterQRSDuration   
+   Item CDATA #FIXED '2380'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '3'>
+
+<!ATTLIST QTInterval    
+   Item CDATA #FIXED '2381'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '3'>
+
+<!ATTLIST TapeQuality  
+   Item CDATA #FIXED '2382'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+
+<!ATTLIST LengthofHolterMeas 
+   Item CDATA #FIXED '2403'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '3'>
+
+<!ATTLIST InstitutionName1
+   Item CDATA #FIXED '2383'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+
+<!ATTLIST MDAddress1 
+   Item CDATA #FIXED '2384'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '0'>
+
+<!ATTLIST Filters 
+   Item CDATA #FIXED '2385'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '4'>
+
+<!ATTLIST Leads  
+   Item CDATA #FIXED '2386'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '4'>
+
+<!ATTLIST Seerid 
+   Item CDATA #FIXED '2387'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '3'>
+
+<!ATTLIST LongVERunRate 
+   Item CDATA #FIXED '2317'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '3'>
+
+<!ATTLIST LongVERunLength 
+   Item CDATA #FIXED '2318'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '5'>
+
+<!ATTLIST LongVERunTime 
+   Item CDATA #FIXED '2319'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '10'>
+
+<!ATTLIST LongVERunDate  
+   Item CDATA #FIXED '2320'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '9'>
+
+<!ATTLIST FastVERunRate 
+   Item CDATA #FIXED '2322'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '3'>
+
+<!ATTLIST FastVERunLength 
+   Item CDATA #FIXED '2323'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '5'>
+
+<!ATTLIST FastVERunTime 
+   Item CDATA #FIXED '2324'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '10'>
+
+<!ATTLIST FastVERunDate 
+   Item CDATA #FIXED '2325'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '9'>
+
+<!ATTLIST LongSVERunRate 
+   Item CDATA #FIXED '2331'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '3'>
+
+<!ATTLIST LongSVERunLength 
+   Item CDATA #FIXED '2332'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '5'>
+
+<!ATTLIST LongSVERunTime 
+   Item CDATA #FIXED '2333'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '10'>
+
+<!ATTLIST LongSVERunDate 
+   Item CDATA #FIXED '2334'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '9'>
+
+<!ATTLIST FastSVERunRate 
+   Item CDATA #FIXED '2336'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '3'>
+
+<!ATTLIST FastSVERunLength 
+   Item CDATA #FIXED '2337'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '5'>
+
+<!ATTLIST FastSVERunTime 
+   Item CDATA #FIXED '2338'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '10'>
+
+<!ATTLIST FastSVERunDate 
+   Item CDATA #FIXED '2339'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '9'>
+
+<!ATTLIST MinHeartRate 
+   Item CDATA #FIXED '2341'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '3'>
+
+<!ATTLIST MinHeartRateTime 
+   Item CDATA #FIXED '2342'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '10'>
+
+<!ATTLIST MinHeartRateDate 
+   Item CDATA #FIXED '2343'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '9'>
+
+<!ATTLIST MaxHeartRate 
+   Item CDATA #FIXED '2345'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '3'>
+
+<!ATTLIST MaxHeartRateTime 
+   Item CDATA #FIXED '2346'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '10'>
+
+<!ATTLIST MaxHeartRateDate 
+   Item CDATA #FIXED '2347'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '9'>
+
+<!ATTLIST STChan1Max 
+   Item CDATA #FIXED '2349'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '1'>
+
+<!ATTLIST STChan1Min 
+   Item CDATA #FIXED '2350'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '1'>
+
+<!ATTLIST STChan1MaxTime 
+   Item CDATA #FIXED '2351'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '10'>
+
+<!ATTLIST STChan1MaxDate 
+   Item CDATA #FIXED '2352'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '9'>
+
+<!ATTLIST STChan1MinTime 
+   Item CDATA #FIXED '2353'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '10'>
+
+<!ATTLIST STChan1MinDate 
+   Item CDATA #FIXED '2354'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '9'>
+
+<!ATTLIST STChan2Max 
+   Item CDATA #FIXED '2356'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '1'>
+
+<!ATTLIST STChan2Min 
+   Item CDATA #FIXED '2357'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '1'>
+
+<!ATTLIST STChan2MaxTime 
+   Item CDATA #FIXED '2358'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '10'>
+
+<!ATTLIST STChan2MaxDate 
+   Item CDATA #FIXED '2359'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '9'>
+
+<!ATTLIST STChan2MinTime 
+   Item CDATA #FIXED '2360'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '10'>
+
+<!ATTLIST STChan2MinDate 
+   Item CDATA #FIXED '2361'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '9'>
+
+<!ATTLIST STChan3Max 
+   Item CDATA #FIXED '2363'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '1'>
+
+<!ATTLIST STChan3Min 
+   Item CDATA #FIXED '2364'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '1'>
+
+<!ATTLIST STChan3MaxTime 
+   Item CDATA #FIXED '2365'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '10'>
+
+<!ATTLIST STChan3MaxDate 
+   Item CDATA #FIXED '2366'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '9'>
+
+<!ATTLIST STChan3MinTime 
+   Item CDATA #FIXED '2367'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '10'>
+
+<!ATTLIST STChan3MinDate 
+   Item CDATA #FIXED '2368'
+   DictInd CDATA #FIXED '0'
+   ConType CDATA #FIXED '0'
+   ty CDATA #FIXED '9'>
+
