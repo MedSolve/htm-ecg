@@ -135,6 +135,7 @@ class TopNode(object):
         result = self.classifier.compute(
             recordNum=recordNum,
             patternNZ=patternNZ,
+            classification={},
             learn=False,
             infer=True
         )
