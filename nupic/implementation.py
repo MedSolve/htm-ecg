@@ -135,7 +135,10 @@ class TopNode(object):
         result = self.classifier.compute(
             recordNum=recordNum,
             patternNZ=patternNZ,
-            classification={},
+            classification={
+                "bucketIdx": 0, # nonetype do not work so supply 0 info
+                "actValue": 0   # nonetype do not work so supply 0 info
+            },
             learn=False,
             infer=True
         )
