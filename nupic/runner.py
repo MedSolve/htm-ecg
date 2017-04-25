@@ -1,13 +1,17 @@
 from dataset import generateRandomSet
 from implementation import Layer, TopNode
-from config import CLASSCONFIG, CONFIG_L1, CONFIG_L2
+from config import CLASSCONFIG, CONFIG_L1, CONFIG_L2, SAVEPATH
+import numpy as np
+import csv
 
 # Ranudom row
 RANROW = 10
 
 # Generate random dataset
-DATA_TEST = generateRandomSet(RANROW, CONFIG_L1['inputDimensions'], CONFIG_L1['uintType'])
-DATA_TRAINING = generateRandomSet(RANROW, CONFIG_L1['inputDimensions'], CONFIG_L1['uintType'])
+DATA_TEST = generateRandomSet(
+    RANROW, CONFIG_L1['inputDimensions'], CONFIG_L1['uintType'])
+DATA_TRAINING = generateRandomSet(
+    RANROW - 5, CONFIG_L1['inputDimensions'], CONFIG_L1['uintType'])
 
 # Generate the layers and classifier
 LAYERONE = Layer(CONFIG_L1)
@@ -44,13 +48,28 @@ for row in DATA_TEST:
     # perform classification
     CLASSIFIER.learn(out_two, bucketIdx, actValue, recordNum)
 
+# Open result write
+WRITER = csv.writer(open(SAVEPATH, 'w'))
+
+# Set labelse
+WRITER.writerow(['Test number', 'BucketIndex',
+                 'Classification', 'Probability'])
+
+# Test number
+TESTNUM = 0
+
 # Perform inherence on TEST data
 for row in DATA_TRAINING:
+
+    # increment test
+    TESTNUM = TESTNUM + 1
 
     out_one = LAYERONE.predict(row['raw'], True)
     out_two = LAYERTWO.predict(out_one, False)
     predictions = CLASSIFIER.predic(out_two, row['recordNum'])
 
+    print predictions
+
     for probability, value in predictions:
-        print "Prediction of {} has probability of {}.".format(value, probability*100.0)
-        
+        WRITER.writerow([TESTNUM, row['bucketIdx'], int(
+            value), "{0:.2f}".format(probability * 100.0)])

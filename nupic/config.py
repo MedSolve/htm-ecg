@@ -2,6 +2,9 @@
 CLASSCONFIG = {
 }
 
+# path to csv
+SAVEPATH = './data/nupi.res.csv'
+
 # global configuration for layers
 CONFIG = {
     'uintType': 'uint32',           # Data type supporting binery 0 and 1
