@@ -1,17 +1,19 @@
-from dataset import generateRandomSet
+from dataset import generateRandomSet, getRealData
 from implementation import Layer, TopNode
 from config import CLASSCONFIG, CONFIG_L1, CONFIG_L2, SAVEPATH
 import numpy as np
 import csv
 
-# Ranudom row
-RANROW = 10
-
 # Generate random dataset
 DATA_TEST = generateRandomSet(
-    RANROW, CONFIG_L1['inputDimensions'], CONFIG_L1['uintType'])
+    10, CONFIG_L1['inputDimensions'], CONFIG_L1['uintType'])
 DATA_TRAINING = generateRandomSet(
-    RANROW - 5, CONFIG_L1['inputDimensions'], CONFIG_L1['uintType'])
+    5, CONFIG_L1['inputDimensions'], CONFIG_L1['uintType'])
+
+# get the real data source 
+DATA = getRealData(True)
+DATA_TEST = DATA[0]
+DATA_TRAINING = DATA[1]
 
 # Generate the layers and classifier
 LAYERONE = Layer(CONFIG_L1)

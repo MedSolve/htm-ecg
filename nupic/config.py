@@ -2,8 +2,13 @@
 CLASSCONFIG = {
 }
 
-# path to csv
+# path to csvs
 SAVEPATH = './data/nupi.res.csv'
+SOURCE = './data.nupi.source.csv'
+
+# Data source split
+TRANING = 0.8       # Percentage of total data set
+TEST = 0.5          # Percentage of rest data after traning
 
 # global configuration for layers
 CONFIG = {

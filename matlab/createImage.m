@@ -1,0 +1,1 @@
+%Assign a sample number that are not individual but just increase for each generated image
