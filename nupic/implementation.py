@@ -136,8 +136,8 @@ class TopNode(object):
             recordNum=recordNum,
             patternNZ=patternNZ,
             classification={
-                "bucketIdx": 0, # nonetype do not work so supply 0 info
-                "actValue": 0   # nonetype do not work so supply 0 info
+                "bucketIdx": None, # nonetype do not work so supply 0 info
+                "actValue": None   # nonetype do not work so supply 0 info
             },
             learn=False,
             infer=True
