@@ -6,6 +6,20 @@ from nupic.research.temporal_memory import TemporalMemory
 from nupic.algorithms.sdr_classifier_factory import SDRClassifierFactory
 
 
+def bitmapSDR(source, size, datatype):
+    """Creates and SDR from bitmap source"""
+
+    # prepare output
+    out = np.zeros(size, datatype)
+
+    # loop source and set the values
+    for i in source:
+        out[i] = 1
+
+    # return output
+    return out
+
+
 class Layer(object):
     """One combined layer of spatial and temporal pooling """
 
@@ -15,6 +29,10 @@ class Layer(object):
         # Calculate the size of input and col space
         inputsize = np.array(config['inputDimensions']).prod()
         colsize = np.array(config['columnDimensions']).prod()
+
+        # save colsize and data type
+        self.colsize = colsize
+        self.datatype = config['uintType']
 
         # setup the pooler and reference to active column holder
         self.sp = SpatialPooler(
@@ -71,9 +89,14 @@ class Layer(object):
         cells = self.tm.getActiveCells()
 
         if colOut is True:
-            return self.tm.mapCellsToColumns(cells)
+            return bitmapSDR(
+                self.tm.mapCellsToColumns(cells),
+                self.colsize,
+                self.datatype
+            )
         else:
             return cells
+
 
 class TopNode(object):
     """Performs classifcation from reference output node """
@@ -81,8 +104,11 @@ class TopNode(object):
     # function called on init of layer
     def __init__(self, config):
 
-        # save the references and configuration
-        self.classifier = SDRClassifierFactory.create(config)
+        # save the references and configuration if any is set
+        if len(config) is 0:
+            self.classifier = SDRClassifierFactory.create()
+        else:
+            self.classifier = SDRClassifierFactory.create(config)
 
     def learn(self, patternNZ, bucketIdx, actValue, recordNum):
         """Learns to classify the underlying patterns"""

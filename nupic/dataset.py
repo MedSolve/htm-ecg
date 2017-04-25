@@ -19,7 +19,7 @@ def generateRandomSet(rows, dim, datatype):
     data = np.zeros(size, datatype)
 
     # output holder
-    out = np.zeros(rows, datatype)
+    out = []
 
     # loop the set of rows
     for row in range(rows):
@@ -31,7 +31,12 @@ def generateRandomSet(rows, dim, datatype):
             data[col] = random.randrange(2)
 
         # save ref to output
-        out[row] = data
+        out.append({
+            'recordNum': row,
+            'bucketIdx': row,
+            'actValue': row,
+            'raw': data
+        })
 
     # return the resulting random set
     return out
