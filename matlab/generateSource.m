@@ -5,12 +5,12 @@ width = 185;
 hight = 96;
 
 % write csv start
+delete(storePath);
 fid = fopen(storePath, 'w') ;
 fprintf(fid, '%s,', 'recordNum');
 fprintf(fid, '%s,', 'bucketIdx');
 fprintf(fid, '%s,', 'actValue');
-fprintf(fid, '%s', 'raw');
-fclose(fid);
+fprintf(fid, '%s\n', 'raw');
 
 % Get the folder for data source
 source = uigetdir;
@@ -21,8 +21,14 @@ list = dir([source '/*.xml']);
 % keep track of global sample number
 sampleNumber = 0;
 
+% create waitbar
+h = waitbar(0,'Please wait...');
+
+% number of steps
+steps = length(list);
+
 % loop the source
-for i=1:length(list)
+for i=1:steps
     
     % Get the xml struct
     XMLstruct = ParseXMLFcn([list(i).folder '/' list(i).name]);
@@ -33,7 +39,7 @@ for i=1:length(list)
     % get the spans
     spans = getComplex(ecgSource, samplingFreq, width, hight);
     
-    %  determine person and set bucket index
+    %  determine person and set bucket index remove the prefix zeros
     bucketIdx = str2num(XMLstruct.TestInfo.PatientID);
     
     % num spans
@@ -47,15 +53,30 @@ for i=1:length(list)
         
         % se variables and calculate actual value
         recordNum = sampleNumber;
-        actValue = bucketIdx + 1/recordNum;
+        actValue = [mat2str(bucketIdx) '.' mat2str(recordNum)];
         
         % get the raw value
-        raw = spans(j,:);
+        raw = mat2str(spans(j,:));
+        raw = regexprep(raw, ']', '');
+        raw = regexprep(raw, '[', '');
+        raw = regexprep(raw, ' ', '');
         
         % write result
-        csvwrite(storePath,[recordNum, bucketIdx, actValue, raw],i+1);
+        %dlmwrite(storePath,[recordNum, bucketIdx, actValue, (raw)],'-append');
+        fprintf(fid, '%d,', recordNum);
+        fprintf(fid, '%d,', bucketIdx);
+        fprintf(fid, '%s,', actValue);
+        fprintf(fid, '%s\n', raw);
+        
     end
+    
+    % update the bar
+    waitbar(i/steps);
 end
+
+% close the handlers
+close(h);
+fclose(fid);
 
 % Get complex spans from source
 function res = getComplex(source, samplingFreq, width, hight)

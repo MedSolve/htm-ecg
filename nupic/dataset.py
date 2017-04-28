@@ -90,3 +90,5 @@ def getRealData(optimise):
                     'raw': row[3]
                 })
     return [test, training]
+
+getRealData
