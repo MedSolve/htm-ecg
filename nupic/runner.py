@@ -5,15 +5,15 @@ import numpy as np
 import csv
 
 # Generate random dataset
-DATA_TEST = generateRandomSet(
-    10, CONFIG_L1['inputDimensions'], CONFIG_L1['uintType'])
-DATA_TRAINING = generateRandomSet(
-    5, CONFIG_L1['inputDimensions'], CONFIG_L1['uintType'])
+#DATA_TEST = generateRandomSet(
+#    10, CONFIG_L1['inputDimensions'], CONFIG_L1['uintType'])
+#DATA_TRAINING = generateRandomSet(
+#    5, CONFIG_L1['inputDimensions'], CONFIG_L1['uintType'])
 
 # get the real data source 
-#DATA = getRealData(True)
-#DATA_TEST = DATA[0]
-#DATA_TRAINING = DATA[1]
+DATA = getRealData(True)
+DATA_TEST = DATA[0]
+DATA_TRAINING = DATA[1]
 
 # Generate the layers and classifier
 LAYERONE = Layer(CONFIG_L1)
