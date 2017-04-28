@@ -55,8 +55,12 @@ def getRealData(optimise):
         # get sourcereader
         sourcereader = csv.reader(csvfile, delimiter=',')
 
+        # skips the first since it is header information
+        sourcereader.next()
+
         # get length of source
-        length = len(sourcereader)
+        data = list(sourcereader)
+        length = len(data)
         counter = 1
 
         # read up to here
@@ -68,9 +72,7 @@ def getRealData(optimise):
         else:
             spanrest = [trainto + 1, trainto + rest + 1]
 
-        # skips the first since it is header information
-        sourcereader.readline()
-        for row in sourcereader:
+        for row in data:
 
             # load traning data
             if counter >= trainto:
@@ -90,5 +92,3 @@ def getRealData(optimise):
                     'raw': row[3]
                 })
     return [test, training]
-
-getRealData
