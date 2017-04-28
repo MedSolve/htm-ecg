@@ -5,13 +5,13 @@ import numpy as np
 import csv
 
 # Generate random dataset
-#DATA_TEST = generateRandomSet(
+# DATA_TEST = generateRandomSet(
 #    10, CONFIG_L1['inputDimensions'], CONFIG_L1['uintType'])
-#DATA_TRAINING = generateRandomSet(
+# DATA_TRAINING = generateRandomSet(
 #    5, CONFIG_L1['inputDimensions'], CONFIG_L1['uintType'])
 
-# get the real data source 
-DATA = getRealData(True)
+# get the real data source
+DATA = getRealData(True, CONFIG_L1['uintType'])
 DATA_TEST = DATA[0]
 DATA_TRAINING = DATA[1]
 
@@ -21,13 +21,13 @@ LAYERTWO = Layer(CONFIG_L2)
 CLASSIFIER = TopNode(CLASSCONFIG)
 
 # Perform actual learning on first layer
-for row in DATA_TEST:
+for row in DATA_TRAINING:
 
     # run learning and get cols as output
     LAYERONE.learn(row['raw'])
 
 # Perform actual learning on second layer
-for row in DATA_TEST:
+for row in DATA_TRAINING:
 
     # get prediction from trained layer
     out_one = LAYERONE.predict(row['raw'], True)
@@ -36,7 +36,7 @@ for row in DATA_TEST:
     LAYERTWO.learn(out_one)
 
 # Perform actual learning on third layer
-for row in DATA_TEST:
+for row in DATA_TRAINING:
 
     # get prediction from trained layers
     out_one = LAYERONE.predict(row['raw'], True)
@@ -61,7 +61,7 @@ WRITER.writerow(['Test number', 'BucketIndex',
 TESTNUM = 0
 
 # Perform inherence on TEST data
-for row in DATA_TRAINING:
+for row in DATA_TEST:
 
     # increment test
     TESTNUM = TESTNUM + 1

@@ -1,16 +1,12 @@
-#!/usr/bin/python
-
 import random
-import numpy as np
 import csv
+import numpy as np
 from config import SOURCE, TRANING, TEST
 
 # init random
 random.seed(1)
 
 # creates a random dataset
-
-
 def generateRandomSet(rows, dim, datatype):
     """Generate 10 random dataset"""
 
@@ -44,7 +40,7 @@ def generateRandomSet(rows, dim, datatype):
     return out
 
 
-def getRealData(optimise):
+def getRealData(optimise, datatype):
 
     # output holder
     training = []
@@ -67,28 +63,42 @@ def getRealData(optimise):
         trainto = int(TRANING * length)
         rest = int((length - trainto) * TEST)
 
+        # check if optimisation data set should be set
         if optimise is True:
-            spanrest = [trainto + rest, length]
+            spanrest = [trainto + rest + 1, length]
         else:
-            spanrest = [trainto + 1, trainto + rest + 1]
+            spanrest = [trainto + 1, trainto + rest]
 
+        # loop all he rows
         for row in data:
 
+            # empty raw array
+            raw = np.zeros(len(row[3]), datatype)
+
+            # copy content to array
+            for i in range(len(row[3])):
+                raw[i] = row[3][i]
+
             # load traning data
-            if counter >= trainto:
+            if counter <= trainto:
                 training.append({
                     'recordNum': row[0],
                     'bucketIdx': row[1],
                     'actValue': row[2],
-                    'raw': row[3]
+                    'raw': raw
                 })
 
             # load test data if current row is within span
-            if counter >= spanrest[0] or counter <= spanrest[1]:
-                training.append({
+            if counter >= spanrest[0] and counter <= spanrest[1]:
+                test.append({
                     'recordNum': row[0],
                     'bucketIdx': row[1],
                     'actValue': row[2],
-                    'raw': row[3]
+                    'raw': raw
                 })
+
+            # increase the counter
+            counter = counter + 1
+
     return [test, training]
+    
