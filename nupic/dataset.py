@@ -39,7 +39,6 @@ def generateRandomSet(rows, dim, datatype):
     # return the resulting random set
     return out
 
-
 def getRealData(optimise, datatype):
 
     # output holder
@@ -56,18 +55,9 @@ def getRealData(optimise, datatype):
 
         # get length of source
         data = list(sourcereader)
-        length = len(data)
-        counter = 1
 
-        # read up to here
-        trainto = int(TRANING * length)
-        rest = int((length - trainto) * TEST)
-
-        # check if optimisation data set should be set
-        if optimise is True:
-            spanrest = [trainto + rest + 1, length]
-        else:
-            spanrest = [trainto + 1, trainto + rest]
+        # sorted data
+        sortedData = {}
 
         # loop all he rows
         for row in data:
@@ -79,26 +69,63 @@ def getRealData(optimise, datatype):
             for i in range(len(row[3])):
                 raw[i] = row[3][i]
 
-            # load traning data
-            if counter <= trainto:
-                training.append({
+            # put into sorted
+            if row[1] in sortedData:
+
+                # saved sorted data by bucketidx
+                sortedData[row[1]].append({
+                    'recordNum': row[0],
+                    'bucketIdx': row[1],
+                    'actValue': row[2],
+                    'raw': raw
+                })
+            else:
+                # create empty array and then append
+                sortedData[row[1]] = []
+                sortedData[row[1]].append({
                     'recordNum': row[0],
                     'bucketIdx': row[1],
                     'actValue': row[2],
                     'raw': raw
                 })
 
-            # load test data if current row is within span
-            if counter >= spanrest[0] and counter <= spanrest[1]:
-                test.append({
-                    'recordNum': row[0],
-                    'bucketIdx': row[1],
-                    'actValue': row[2],
-                    'raw': raw
-                })
+        # prepare to read only a specfic number of persons
+        lengthPersons = len(sortedData)
+        traintoPerson = int(TRANING * lengthPersons)
+        rest = int((lengthPersons - traintoPerson) * TEST)
+        counterPerson = 1
 
-            # increase the counter
-            counter = counter + 1
+        # check if optimisation data set should be set
+        if optimise is True:
+            spanrest = [traintoPerson + rest + 1, lengthPersons]
+        else:
+            spanrest = [traintoPerson + 1, traintoPerson + rest]
+
+        # put data into traning and test data
+        for personData in sortedData:
+
+            # check if the person is traning and or row data
+            if counterPerson <= traintoPerson or (counterPerson >= spanrest[0] and counterPerson <= spanrest[1]):
+
+                # prepare for each in row point in the person
+                length = len(personData)
+                trainto = int(TRANING * length)
+                counter = 1
+
+                for row in personData:
+
+                    # load traning data or append as test data
+                    if counter <= trainto:
+                        training.append(row)
+                    else:
+                        test.append(row)
+
+                    # increase the counter
+                    counter = counter + 1
+            
+            # increase the number counter for persons
+            counterPerson = counterPerson + 1
 
     return [test, training]
-    
+
+#print getRealData(False, 'uint32')

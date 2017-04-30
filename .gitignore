@@ -1,4 +1,3 @@
 *.pyc
 *.m~
-nupi.res.csv
-nupi.source.csv
+*.csv
