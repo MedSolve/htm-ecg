@@ -1,7 +1,7 @@
 # HTM ECG implementation in MatLab and nupic
 Data is prepared in matlab for encoding and processeing in nupic
 
-(NOT DONE YET)
+Confiugration needs to change to fit with datasource in and output
 
 # Important
 When performing any operations with this project stay in the project's root folder. This is because of the relative paths. Remember to install all nupic and python dependencies! See [nupic](http://nupic.docs.numenta.org/quick-start/index.html) docs. Remember to add the matlab folder to path in matlab!

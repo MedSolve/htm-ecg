@@ -27,6 +27,8 @@ h = waitbar(0,'Please wait...');
 % number of steps
 steps = length(list);
 
+currentBucket = 0;
+
 % loop the source
 for i=1:steps
     
@@ -41,6 +43,11 @@ for i=1:steps
     
     %  determine person and set bucket index remove the prefix zeros
     bucketIdx = str2num(XMLstruct.TestInfo.PatientID);
+    
+    if bucketIdx ~= currentBucket
+        currentBucket = bucketIdx;
+        disp(['Current bucket ' mat2str(bucketIdx)])
+    end
     
     % num spans
     numSpans = size(spans);

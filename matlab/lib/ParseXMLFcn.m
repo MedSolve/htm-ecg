@@ -35,7 +35,7 @@ else
     newXMLfilename = 'necessary_files\tempXMLfile.XML';
 end
 % path is added to beginning of XML file "tempXML"
-% AddPathDtdFiles(filename,newXMLfilename,path2dtd)
+AddPathDtdFiles(filename,newXMLfilename,path2dtd)
 
 % get filename, it is later added to struct
 [~,filenameStr,~] = fileparts(filename) ;
