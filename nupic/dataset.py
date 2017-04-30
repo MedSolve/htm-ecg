@@ -50,18 +50,24 @@ def getRealData(optimise, datatype):
         # get sourcereader
         sourcereader = csv.reader(csvfile, delimiter=',')
 
+        print "Dataset now open"
+
         # skips the first since it is header information
         sourcereader.next()
 
         # get length of source
         data = list(sourcereader)
-
+        rowcounter = 1
+        rowlength = len(data)
         # sorted data
         sortedData = {}
 
         # loop all he rows
         for row in data:
 
+            print "processing row {} of {} for subject {}".format(rowcounter, rowlength, row[1])
+
+            rowcounter = rowcounter + 1
             # empty raw array
             raw = np.zeros(len(row[3]), datatype)
 
@@ -95,11 +101,16 @@ def getRealData(optimise, datatype):
         rest = int((lengthPersons - traintoPerson) * TEST)
         counterPerson = 1
 
+        print "a total number of {} subjects where detected".format(lengthPersons)
+        print "number of subjects for traning {} and test {}".format(traintoPerson, rest)
+
         # check if optimisation data set should be set
         if optimise is True:
             spanrest = [traintoPerson + rest + 1, lengthPersons]
         else:
             spanrest = [traintoPerson + 1, traintoPerson + rest]
+
+        print spanrest
 
         # put data into traning and test data
         for personData in sortedData:
@@ -109,6 +120,7 @@ def getRealData(optimise, datatype):
 
                 # prepare for each in row point in the person
                 length = len(personData)
+                print length
                 trainto = int(TRANING * length)
                 counter = 1
 
@@ -122,10 +134,10 @@ def getRealData(optimise, datatype):
 
                     # increase the counter
                     counter = counter + 1
-            
+
             # increase the number counter for persons
             counterPerson = counterPerson + 1
 
     return [test, training]
 
-#print getRealData(False, 'uint32')
+#getRealData(False, 'uint32')
