@@ -26,14 +26,24 @@ for row in DATA_TRAINING:
     # run learning and get cols as output
     LAYERONE.learn(row['raw'])
 
+    print 'First learning done'
+
+print 'COMPLETED FIRST LEARNING'
+
 # Perform actual learning on second layer
 for row in DATA_TRAINING:
 
     # get prediction from trained layer
     out_one = LAYERONE.predict(row['raw'], True)
 
+    print 'First prediction done'
+
     # run learning and get cols as output
     LAYERTWO.learn(out_one)
+
+    print 'Second learning done'
+
+print 'COMPLETED SECOND LEARNING'
 
 # Perform actual learning on third layer
 for row in DATA_TRAINING:
@@ -42,6 +52,8 @@ for row in DATA_TRAINING:
     out_one = LAYERONE.predict(row['raw'], True)
     out_two = LAYERTWO.predict(out_one, False)
 
+    print 'First and second prediction done'
+
     # calculate meta
     bucketIdx = row['bucketIdx']
     actValue = row['actValue']
@@ -49,6 +61,10 @@ for row in DATA_TRAINING:
 
     # perform classification
     CLASSIFIER.learn(out_two, bucketIdx, actValue, recordNum)
+
+    print 'Classifier learning done'
+
+print 'COMPLETE CLASSIFIER TRANING'
 
 # Open result write
 WRITER = csv.writer(open(SAVEPATH, 'w'))
