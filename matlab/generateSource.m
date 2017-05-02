@@ -1,7 +1,7 @@
 % configuration
 storePath = 'data/nupi.source.csv';
 samplingFreq = 500;
-width = 185;
+width = 192;
 hight = 96;
 
 % write csv start
@@ -28,6 +28,8 @@ h = waitbar(0,'Please wait...');
 steps = length(list);
 
 currentBucket = 0;
+
+disp(['Fund a total of ' mat2str(steps) ' trails'])
 
 % loop the source
 for i=1:steps

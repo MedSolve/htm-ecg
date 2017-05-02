@@ -23,14 +23,14 @@ CONFIG = {
 
 # set config for l1
 CONFIG_L1 = {
-    'inputDimensions': (80, 80),    # Dimentions of the input space
-    'columnDimensions': (40, 40),   # Dimentions of the column space
+    'inputDimensions': (96, 384),   # Dimentions of the input space
+    'columnDimensions': (12, 48),   # Dimentions of the column space
 }
 
 # set config for l2
 CONFIG_L2 = {
-    'inputDimensions': CONFIG_L1['columnDimensions'],   # Dimentions of the input space
-    'columnDimensions': (20, 20),                       # Dimentions of the column space
+    'inputDimensions': CONFIG_L1['columnDimensions'],  # Dimentions of the input space
+    'columnDimensions': (3, 12),                       # Dimentions of the column space
 }
 
 # update configs to contain shared

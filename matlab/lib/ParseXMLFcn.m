@@ -28,11 +28,11 @@ function XMLstruct = ParseXMLFcn(filename)
 % folder. 
 
 if isunix
-    path2dtd = 'dtd_files/restecg.dtd';
-    newXMLfilename = 'necessary_files/tempXMLfile.XML';
+    path2dtd = [pwd '/matlab/lib/necessary_files/dtd_files/restecg.dtd'];
+    newXMLfilename = [pwd '/matlab/lib/necessary_files/tempXMLfile.XML'];
 else
-    path2dtd = 'dtd_files\restecg.dtd';
-    newXMLfilename = 'necessary_files\tempXMLfile.XML';
+    path2dtd = [pwd '\matlab\lib\necessary_files\dtd_files\restecg.dtd'];
+    newXMLfilename = [pwd '\matlab\lib\necessary_files\tempXMLfile.XML'];
 end
 % path is added to beginning of XML file "tempXML"
 AddPathDtdFiles(filename,newXMLfilename,path2dtd)

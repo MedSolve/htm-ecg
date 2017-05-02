@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 import numpy as np
+import math
 from nupic.research.spatial_pooler import SpatialPooler
 from nupic.research.temporal_memory import TemporalMemory
 from nupic.algorithms.sdr_classifier_factory import SDRClassifierFactory
@@ -39,7 +40,7 @@ class Layer(object):
             inputDimensions=config['inputDimensions'],
             columnDimensions=config['columnDimensions'],
             potentialRadius=int(config['potentialRadius'] * inputsize),
-            numActiveColumnsPerInhArea=int(
+            numActiveColumnsPerInhArea=math.ceil(
                 config['amountActiveCols'] * colsize),
             globalInhibition=config['inhibition']
         )
