@@ -23,10 +23,6 @@ CLASSIFIER = TopNode(CLASSCONFIG)
 # Perform actual learning on first layer
 for row in DATA_TRAINING:
 
-    print type(row['raw'])
-    print type(row['raw'][0])
-    print type(row)
-    print row
     # run learning and get cols as output
     LAYERONE.learn(row['raw'])
 

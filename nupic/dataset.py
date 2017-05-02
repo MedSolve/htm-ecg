@@ -113,6 +113,8 @@ def getRealData(optimise, datatype):
         # put data into traning and test data
         for personData in sortedData:
 
+            print "Sorting test and traning data for subject {}".format(personData)
+
             # check if the person is traning and or row data
             if counterPerson <= traintoPerson or (counterPerson >= spanrest[0] and counterPerson <= spanrest[1]):
 
@@ -122,7 +124,7 @@ def getRealData(optimise, datatype):
                 trainto = int(TRANING * length)
                 counter = 1
 
-                for row in personData:
+                for row in sortedData[personData]:
 
                     # load traning data or append as test data
                     if counter <= trainto:
@@ -138,4 +140,4 @@ def getRealData(optimise, datatype):
 
     return [test, training]
 
-#getRealData(False, 'uint32')
+#DATA = getRealData(False, 'uint32')
