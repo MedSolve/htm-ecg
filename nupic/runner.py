@@ -29,7 +29,7 @@ for row in DATA_TRAINING:
     # run learning and get cols as output
     LAYERONE.learn(row['raw'])
 
-    print "First learning {} complete".format((CURRENT_STEP / STEPS) * 100.0)
+    print "First learning {} of {}".format(CURRENT_STEP, STEPS)
 
     CURRENT_STEP = CURRENT_STEP + 1
 
@@ -45,7 +45,7 @@ for row in DATA_TRAINING:
     # run learning and get cols as output
     LAYERTWO.learn(out_one)
 
-    print "Second learning {} complete".format((CURRENT_STEP / STEPS) * 100.0)
+    print "Second learning {} of {}".format(CURRENT_STEP, STEPS)
 
     CURRENT_STEP = CURRENT_STEP + 1
 
@@ -67,7 +67,7 @@ for row in DATA_TRAINING:
     # perform classification
     CLASSIFIER.learn(out_two, bucketIdx, actValue, recordNum)
 
-    print "Classifier training {} complete".format((CURRENT_STEP / STEPS) * 100.0)
+    print "Classifier training {} of {}".format(CURRENT_STEP, STEPS)
 
     CURRENT_STEP = CURRENT_STEP + 1
 
@@ -92,5 +92,12 @@ for row in DATA_TEST:
     predictions = CLASSIFIER.predic(out_two, row['recordNum'])
 
     for probability, value in predictions:
-        WRITER.writerow([TESTNUM, row['old_bucketIdx'], row['bucketIdx'], int(
-            value), "{0:.2f}".format(probability * 100.0)])
+        WRITER.writerow(
+            [
+                TESTNUM,
+                row['old_bucketIdx'],
+                row['bucketIdx'],
+                value,
+                "{0:.2f}".format(probability * 100.0)
+            ]
+        )
