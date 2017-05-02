@@ -80,6 +80,7 @@ WRITER.writerow(['Test number', 'Old BucketIndex', 'BucketIndex',
 
 # Test number
 TESTNUM = 0
+TESTLENGTH = len(DATA_TEST)
 
 # Perform inherence on TEST data
 for row in DATA_TEST:
@@ -91,6 +92,8 @@ for row in DATA_TEST:
     out_two = LAYERTWO.predict(out_one, False)
     predictions = CLASSIFIER.predic(out_two, row['recordNum'])
 
+    print "Performing classification {} of {}".format(TESTNUM, TESTLENGTH)
+
     for probability, value in predictions:
         WRITER.writerow(
             [
@@ -101,3 +104,5 @@ for row in DATA_TEST:
                 "{0:.2f}".format(probability * 100.0)
             ]
         )
+
+print "DONE"
