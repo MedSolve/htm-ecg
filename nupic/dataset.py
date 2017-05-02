@@ -73,7 +73,7 @@ def getRealData(optimise, datatype):
 
             # copy content to array
             for i in range(len(row[3])):
-                raw[i] = row[3][i]
+                raw[i] = int(row[3][i])
 
             # put into sorted
             if row[1] in sortedData:
@@ -110,8 +110,6 @@ def getRealData(optimise, datatype):
         else:
             spanrest = [traintoPerson + 1, traintoPerson + rest]
 
-        print spanrest
-
         # put data into traning and test data
         for personData in sortedData:
 
@@ -120,7 +118,7 @@ def getRealData(optimise, datatype):
 
                 # prepare for each in row point in the person
                 length = len(personData)
-                print length
+ 
                 trainto = int(TRANING * length)
                 counter = 1
 
