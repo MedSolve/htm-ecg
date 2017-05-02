@@ -6,7 +6,6 @@ from nupic.research.spatial_pooler import SpatialPooler
 from nupic.research.temporal_memory import TemporalMemory
 from nupic.algorithms.sdr_classifier_factory import SDRClassifierFactory
 
-
 def bitmapSDR(source, size, datatype):
     """Creates and SDR from bitmap source"""
 
@@ -123,7 +122,7 @@ class TopNode(object):
                 "actValue": actValue
             },
             learn=True,
-            infer=False
+            infer=True
         )
 
         # returns that learning has been done

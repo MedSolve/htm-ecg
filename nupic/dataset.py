@@ -110,7 +110,7 @@ def getRealData(optimise, datatype):
         else:
             spanrest = [traintoPerson + 1, traintoPerson + rest]
 
-        # put data into traning and test data
+        # put data into traning and test data and assign custom person id
         for personData in sortedData:
 
             print "Sorting test and traning data for subject {}".format(personData)
@@ -126,6 +126,10 @@ def getRealData(optimise, datatype):
 
                 for row in sortedData[personData]:
 
+                    # set the fixed bucketidx
+                    row['old_bucketIdx'] = row['bucketIdx']
+                    row['bucketIdx'] = counterPerson
+
                     # load traning data or append as test data
                     if counter <= trainto:
                         training.append(row)
@@ -137,6 +141,7 @@ def getRealData(optimise, datatype):
 
             # increase the number counter for persons
             counterPerson = counterPerson + 1
+
 
     return [test, training]
 

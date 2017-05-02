@@ -1,7 +1,6 @@
 from dataset import generateRandomSet, getRealData
 from implementation import Layer, TopNode
 from config import CLASSCONFIG, CONFIG_L1, CONFIG_L2, SAVEPATH
-import numpy as np
 import csv
 
 # Generate random dataset
@@ -20,15 +19,22 @@ LAYERONE = Layer(CONFIG_L1)
 LAYERTWO = Layer(CONFIG_L2)
 CLASSIFIER = TopNode(CLASSCONFIG)
 
+# Get length to calculate percentage done
+STEPS = len(DATA_TRAINING)
+CURRENT_STEP = 1
+
 # Perform actual learning on first layer
 for row in DATA_TRAINING:
 
     # run learning and get cols as output
     LAYERONE.learn(row['raw'])
 
-    print 'First learning done'
+    print "First learning {} complete".format((CURRENT_STEP / STEPS) * 100.0)
 
-print 'COMPLETED FIRST LEARNING'
+    CURRENT_STEP = CURRENT_STEP + 1
+
+# reset step
+CURRENT_STEP = 1
 
 # Perform actual learning on second layer
 for row in DATA_TRAINING:
@@ -36,14 +42,15 @@ for row in DATA_TRAINING:
     # get prediction from trained layer
     out_one = LAYERONE.predict(row['raw'], True)
 
-    print 'First prediction done'
-
     # run learning and get cols as output
     LAYERTWO.learn(out_one)
 
-    print 'Second learning done'
+    print "Second learning {} complete".format((CURRENT_STEP / STEPS) * 100.0)
 
-print 'COMPLETED SECOND LEARNING'
+    CURRENT_STEP = CURRENT_STEP + 1
+
+# reset step
+CURRENT_STEP = 1
 
 # Perform actual learning on third layer
 for row in DATA_TRAINING:
@@ -51,8 +58,6 @@ for row in DATA_TRAINING:
     # get prediction from trained layers
     out_one = LAYERONE.predict(row['raw'], True)
     out_two = LAYERTWO.predict(out_one, False)
-
-    print 'First and second prediction done'
 
     # calculate meta
     bucketIdx = row['bucketIdx']
@@ -62,15 +67,15 @@ for row in DATA_TRAINING:
     # perform classification
     CLASSIFIER.learn(out_two, bucketIdx, actValue, recordNum)
 
-    print 'Classifier learning done'
+    print "Classifier training {} complete".format((CURRENT_STEP / STEPS) * 100.0)
 
-print 'COMPLETE CLASSIFIER TRANING'
+    CURRENT_STEP = CURRENT_STEP + 1
 
 # Open result write
 WRITER = csv.writer(open(SAVEPATH, 'w'))
 
 # Set labelse
-WRITER.writerow(['Test number', 'BucketIndex',
+WRITER.writerow(['Test number', 'Old BucketIndex', 'BucketIndex',
                  'Classification', 'Probability'])
 
 # Test number
@@ -86,8 +91,6 @@ for row in DATA_TEST:
     out_two = LAYERTWO.predict(out_one, False)
     predictions = CLASSIFIER.predic(out_two, row['recordNum'])
 
-    print predictions
-
     for probability, value in predictions:
-        WRITER.writerow([TESTNUM, row['bucketIdx'], int(
+        WRITER.writerow([TESTNUM, row['old_bucketIdx'], row['bucketIdx'], int(
             value), "{0:.2f}".format(probability * 100.0)])
