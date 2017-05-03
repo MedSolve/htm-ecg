@@ -125,9 +125,6 @@ def getRealData(optimise, datatype):
                 trainto = int(math.ceil(TRANING * length))
                 counter = 1
 
-                print length
-                print trainto
-
                 for row in sortedData[personData]:
 
                     # set the fixed bucketidx
@@ -150,15 +147,3 @@ def getRealData(optimise, datatype):
             counterPerson = counterPerson + 1
 
     return [test, training, lengthPersons, personID]
-
-DATA = getRealData(True, 'uint32')
-
-DATA_TEST = DATA[0]
-DATA_TRAINING = DATA[1]
-DATA_NUM_SUBJECTS = DATA[3]
-DATA_NUM_SUBJECTS_TOTAL = DATA[2]
-
-print len(DATA_TEST)
-print len(DATA_TRAINING)
-print DATA_NUM_SUBJECTS
-print DATA_NUM_SUBJECTS_TOTAL
