@@ -21,57 +21,60 @@ LAYERONE = Layer(CONFIG_L1)
 LAYERTWO = Layer(CONFIG_L2)
 CLASSIFIER = TopNode(CLASSCONFIG)
 
-# Get length to calculate percentage done
-STEPS = len(DATA_TRAINING)
+# Get length to calculate percentage done CONFIG_l1 contains globally set numIterations
+STEPS = len(DATA_TRAINING)*CONFIG_L1['numIterations']*3
 CURRENT_STEP = 1
 
-# Perform actual learning on first layer
-for row in DATA_TRAINING:
+# perform the given iterations
+for i in range(CONFIG_L1['numIterations']):
 
-    # run learning and get cols as output
-    LAYERONE.learn(row['raw'])
+    # Perform actual learning on first layer
+    for row in DATA_TRAINING:
 
-    print "First learning {} of {}".format(CURRENT_STEP, STEPS)
+        # run learning and get cols as output
+        LAYERONE.learn(row['raw'])
 
-    CURRENT_STEP = CURRENT_STEP + 1
+        print "Performing operation {} of {}".format(CURRENT_STEP, STEPS)
 
-# reset step
-CURRENT_STEP = 1
+        CURRENT_STEP = CURRENT_STEP + 1
 
-# Perform actual learning on second layer
-for row in DATA_TRAINING:
+# perform the given iterations
+for i in range(CONFIG_L1['numIterations']): #CONFIG_l1 contains globally set numIterations
 
-    # get prediction from trained layer
-    out_one = LAYERONE.predict(row['raw'], True)
+    # Perform actual learning on second layer
+    for row in DATA_TRAINING:
 
-    # run learning and get cols as output
-    LAYERTWO.learn(out_one)
+        # get prediction from trained layer
+        out_one = LAYERONE.predict(row['raw'], True)
 
-    print "Second learning {} of {}".format(CURRENT_STEP, STEPS)
+        # run learning and get cols as output
+        LAYERTWO.learn(out_one)
 
-    CURRENT_STEP = CURRENT_STEP + 1
+        print "Performing operation {} of {}".format(CURRENT_STEP, STEPS)
 
-# reset step
-CURRENT_STEP = 1
+        CURRENT_STEP = CURRENT_STEP + 1
 
-# Perform actual learning on third layer
-for row in DATA_TRAINING:
+# perform the given iterations
+for i in range(CONFIG_L1['numIterations']):  #CONFIG_l1 contains globally set numIterations
 
-    # get prediction from trained layers
-    out_one = LAYERONE.predict(row['raw'], True)
-    out_two = LAYERTWO.predict(out_one, False)
+    # Perform actual learning on third layer
+    for row in DATA_TRAINING:
 
-    # calculate meta
-    bucketIdx = row['bucketIdx']
-    actValue = row['actValue']
-    recordNum = row['recordNum']
+        # get prediction from trained layers
+        out_one = LAYERONE.predict(row['raw'], True)
+        out_two = LAYERTWO.predict(out_one, False)
 
-    # perform classification
-    CLASSIFIER.learn(out_two, bucketIdx, actValue, recordNum)
+        # calculate meta
+        bucketIdx = row['bucketIdx']
+        actValue = row['actValue']
+        recordNum = row['recordNum']
 
-    print "Classifier training {} of {}".format(CURRENT_STEP, STEPS)
+        # perform classification
+        CLASSIFIER.learn(out_two, bucketIdx, actValue, recordNum)
 
-    CURRENT_STEP = CURRENT_STEP + 1
+        print "Performing operation {} of {}".format(CURRENT_STEP, STEPS)
+
+        CURRENT_STEP = CURRENT_STEP + 1
 
 # Open result write
 WRITER = csv.writer(open(SAVEPATH, 'w'))

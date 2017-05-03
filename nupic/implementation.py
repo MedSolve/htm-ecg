@@ -53,10 +53,6 @@ class Layer(object):
             cellsPerColumn=config['cellsPerColumn']
         )
 
-        # setup iterations
-        self.sp.setIterationLearnNum(config['numIterations'])
-        self.sp.setIterationNum(config['numIterations'])
-
     # learn the pools based upon the data
     def learn(self, data):
         """learn the spatical and temporal pooling on the dataset"""
