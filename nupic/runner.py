@@ -13,6 +13,8 @@ import csv
 DATA = getRealData(True, CONFIG_L1['uintType'])
 DATA_TEST = DATA[0]
 DATA_TRAINING = DATA[1]
+DATA_NUM_SUBJECTS_TOTAL = DATA[2]
+DATA_NUM_SUBJECTS = DATA[3]
 
 # Generate the layers and classifier
 LAYERONE = Layer(CONFIG_L1)
@@ -106,3 +108,4 @@ for row in DATA_TEST:
         )
 
 print "DONE using {} test and {} traning samples".format(TESTLENGTH, STEPS)
+print "on {} subjects of {}".format(DATA_NUM_SUBJECTS, DATA_NUM_SUBJECTS_TOTAL)

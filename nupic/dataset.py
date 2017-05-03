@@ -1,6 +1,7 @@
 import random
 import csv
 import numpy as np
+import math
 from config import SOURCE, TRANING, TEST
 
 # init random
@@ -97,8 +98,8 @@ def getRealData(optimise, datatype):
 
         # prepare to read only a specfic number of persons
         lengthPersons = len(sortedData)
-        traintoPerson = int(TRANING * lengthPersons)
-        rest = int((lengthPersons - traintoPerson) * TEST)
+        traintoPerson = int(math.ceil(TRANING * lengthPersons))
+        rest = int(math.ceil((lengthPersons - traintoPerson) * TEST))
         counterPerson = 1
 
         print "a total number of {} subjects where detected".format(lengthPersons)
@@ -111,6 +112,7 @@ def getRealData(optimise, datatype):
             spanrest = [traintoPerson + 1, traintoPerson + rest]
 
         # put data into traning and test data and assign custom person id
+        personID = 0
         for personData in sortedData:
 
             print "Sorting test and traning data for subject {}".format(personData)
@@ -120,15 +122,17 @@ def getRealData(optimise, datatype):
 
                 # prepare for each in row point in the person
                 length = len(sortedData[personData])
- 
-                trainto = int(TRANING * length)
+                trainto = int(math.ceil(TRANING * length))
                 counter = 1
+
+                print length
+                print trainto
 
                 for row in sortedData[personData]:
 
                     # set the fixed bucketidx
                     row['old_bucketIdx'] = row['bucketIdx']
-                    row['bucketIdx'] = counterPerson
+                    row['bucketIdx'] = personID
 
                     # load traning data or append as test data
                     if counter <= trainto:
@@ -139,9 +143,22 @@ def getRealData(optimise, datatype):
                     # increase the counter
                     counter = counter + 1
 
+                # increment personid
+                personID = personID + 1
+
             # increase the number counter for persons
             counterPerson = counterPerson + 1
 
-    return [test, training]
+    return [test, training, lengthPersons, personID]
 
-#DATA = getRealData(False, 'uint32')
+DATA = getRealData(True, 'uint32')
+
+DATA_TEST = DATA[0]
+DATA_TRAINING = DATA[1]
+DATA_NUM_SUBJECTS = DATA[3]
+DATA_NUM_SUBJECTS_TOTAL = DATA[2]
+
+print len(DATA_TEST)
+print len(DATA_TRAINING)
+print DATA_NUM_SUBJECTS
+print DATA_NUM_SUBJECTS_TOTAL
