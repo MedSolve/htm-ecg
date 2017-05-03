@@ -1,4 +1,4 @@
-from dataset import generateRandomSet, getRealData
+from dataset import generateRandomSet, getRealData, getFromMongo
 from implementation import Layer, TopNode
 from config import CLASSCONFIG, CONFIG_L1, CONFIG_L2, SAVEPATH
 import csv
@@ -10,7 +10,8 @@ import csv
 #    5, CONFIG_L1['inputDimensions'], CONFIG_L1['uintType'])
 
 # get the real data source
-DATA = getRealData(True, CONFIG_L1['uintType'])
+getRealData(CONFIG_L1['uintType'])
+DATA = getFromMongo(False)
 DATA_TEST = DATA[0]
 DATA_TRAINING = DATA[1]
 DATA_NUM_SUBJECTS_TOTAL = DATA[2]

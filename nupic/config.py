@@ -10,6 +10,9 @@ SOURCE = './data/nupi.source.csv'
 TRANING = 0.8       # Percentage of total data set
 TEST = 0.5          # Percentage of rest data after traning
 
+# MONGODB 
+MONGOCONFIG = 'mongodb://localhost:27017/'
+
 # global configuration for layers
 CONFIG = {
     'uintType': 'uint32',           # Data type supporting binery 0 and 1
