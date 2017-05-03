@@ -105,4 +105,4 @@ for row in DATA_TEST:
             ]
         )
 
-print "DONE"
+print "DONE using {} test and {} traning samples".format(TESTLENGTH, STEPS)

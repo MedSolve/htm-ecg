@@ -20,3 +20,5 @@ The storage can be changed in 'generateSource()' but keep it mind that it will a
 Use 'nupic/runner.py' to perfrom HTM on the data. This will generate an output that as default will be in 'data/nupic.res.csv'
 
 Use this in any program you want to evaluate your system!
+
+I have included a postProcessing.m file under the matlab folder

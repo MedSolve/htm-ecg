@@ -119,7 +119,7 @@ def getRealData(optimise, datatype):
             if counterPerson <= traintoPerson or (counterPerson >= spanrest[0] and counterPerson <= spanrest[1]):
 
                 # prepare for each in row point in the person
-                length = len(personData)
+                length = len(sortedData[personData])
  
                 trainto = int(TRANING * length)
                 counter = 1
@@ -141,7 +141,6 @@ def getRealData(optimise, datatype):
 
             # increase the number counter for persons
             counterPerson = counterPerson + 1
-
 
     return [test, training]
 
