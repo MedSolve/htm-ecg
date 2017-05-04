@@ -32,7 +32,7 @@ currentBucket = 0;
 disp(['Fund a total of ' mat2str(steps) ' trails'])
 
 % loop the source
-parfor i=1:steps
+for i=1:steps
     
     % Get the xml struct
     XMLstruct = ParseXMLFcn([list(i).folder '/' list(i).name]);
