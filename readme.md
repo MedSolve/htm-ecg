@@ -2,7 +2,10 @@
 Data is prepared in matlab for encoding and processeing in nupic
 
 Confiugration needs to change to fit with datasource in and output. 
-For performance of this system we included MongoDB
+For performance of this system we included MongoDB.
+
+# Time
+For ECG data with 10 seconds ECG on 50.000 trails it took roughly 24 hours on a quard core i7 to prepare the dataset.
 
 # Important
 When performing any operations with this project stay in the project's root folder. This is because of the relative paths. Remember to install all nupic and python dependencies! See [nupic](http://nupic.docs.numenta.org/quick-start/index.html) docs. Remember to add the matlab folder to path in matlab!
