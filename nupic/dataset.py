@@ -41,7 +41,7 @@ def generateRandomSet(rows, dim, datatype):
     # return the resulting random set
     return out
 
-def getRealData(datatype):
+def getRealData():
     'Gets real dataset'
 
     # connect and get db
@@ -71,15 +71,8 @@ def getRealData(datatype):
             print "processing row {}".format(rowcounter)
             rowcounter = rowcounter + 1
 
-            # empty array for raw value
-            raw = np.zeros(len(row[3]), datatype)
-
-            # copy content to array
-            for i in range(len(row[3])):
-                raw[i] = int(row[3][i])
-
             # if personID do not exist for bucket then create one
-            if not sorted_data[row[1]]:
+            if sorted_data.has_key(row[1]) is False:
 
                 sorted_data[row[1]] = person_id
                 person_id = person_id + 1
@@ -90,7 +83,7 @@ def getRealData(datatype):
                 'bucketIdx': sorted_data[row[1]],
                 'old_bucketIdx': row[1],
                 'actValue': row[2],
-                'raw': raw
+                'raw': row[3]
             })
 
         # print how much we lodaed
@@ -98,7 +91,7 @@ def getRealData(datatype):
 
     print 'Data Saved to MongoDB'
 
-def getFromMongo(optimise):
+def getFromMongo(optimise, datatype):
     'Gets test and traning data from mongodb'
 
     # connect and get db
@@ -144,6 +137,16 @@ def getFromMongo(optimise):
 
         # get the data for the person
         for person_data in curs:
+
+            # empty array for raw value
+            raw = np.zeros(len(person_data['raw']), datatype)
+
+            # copy content to array
+            for i in range(len(person_data['raw'])):
+                raw[i] = int(person_data['raw'][i])
+
+            # bind updated raw
+            person_data['raw'] = raw
 
             # load traning data or append as test data
             if counter <= trainto:

@@ -10,8 +10,8 @@ import csv
 #    5, CONFIG_L1['inputDimensions'], CONFIG_L1['uintType'])
 
 # get the real data source
-getRealData(CONFIG_L1['uintType'])
-DATA = getFromMongo(False)
+getRealData()
+DATA = getFromMongo(False, CONFIG_L1['uintType'])
 DATA_TEST = DATA[0]
 DATA_TRAINING = DATA[1]
 DATA_NUM_SUBJECTS_TOTAL = DATA[2]
