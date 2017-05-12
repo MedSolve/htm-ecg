@@ -1,48 +1,11 @@
-import random
 import csv
 import numpy as np
 import math
 from pymongo import MongoClient
 from config import SOURCE, TRANING, TEST, MONGOCONFIG
 
-# init random
-random.seed(1)
-
-# creates a random dataset
-def generateRandomSet(rows, dim, datatype):
-    """Generate 10 random dataset"""
-
-    # set size
-    size = dim[0] * dim[1]
-
-    # init empty space for input
-    data = np.zeros(size, datatype)
-
-    # output holder
-    out = []
-
-    # loop the set of rows
-    for row in range(rows):
-
-        # loop the set of cols
-        for col in range(size):
-
-            # save the random data as either 0 or 1
-            data[col] = random.randrange(2)
-
-        # save ref to output
-        out.append({
-            'recordNum': row,
-            'bucketIdx': row,
-            'actValue': row,
-            'raw': data
-        })
-
-    # return the resulting random set
-    return out
-
 def getRealData():
-    'Gets real dataset'
+    'Gets real dataset and store it in MongoDB'
 
     # connect and get db
     client = MongoClient(MONGOCONFIG)
@@ -91,17 +54,13 @@ def getRealData():
 
     print 'Data Saved to MongoDB'
 
-def getFromMongo(optimise, datatype):
+def getFromMongo(optimise, datatype, train_cb, test_cb):
     'Gets test and traning data from mongodb'
 
     # connect and get db
     client = MongoClient(MONGOCONFIG)
     database = client.ecg_db
     collection = database.ecg_collection
-
-    # output holder
-    training = []
-    test = []
 
     # prepare to read only a specfic number of persons
     persons = collection.distinct('bucketIdx')
@@ -150,13 +109,12 @@ def getFromMongo(optimise, datatype):
 
             # load traning data or append as test data
             if counter <= trainto:
-                training.append(person_data)
+                train_cb(person_data, counter)
             else:
-                test.append(person_data)
+                test_cb(person_data, counter)
 
             # increase the counter
             counter = counter + 1
 
-
     # return specifics
-    return [test, training, length_persons, trainto_person + rest]
+    #return [test, training, length_persons, trainto_person + rest]
