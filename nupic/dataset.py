@@ -87,7 +87,7 @@ def getFromMongo(optimise, datatype, train_cb, test_cb):
         curs = collection.find({'bucketIdx': person})
 
         # prepare for each in row point in the person
-        length = len(curs)
+        length = curs.count()
         trainto = int(math.ceil(TRANING * length))
         counter = 1
 
