@@ -7,11 +7,12 @@ SAVEPATH = './data/nupi.res.csv'
 SOURCE = './data/nupi.source.csv'
 
 # Data source split
-TRANING = 0.8       # Percentage of total data set
-TEST = 0.5          # Percentage of rest data after traning
+TRANING = 0.04       # Percentage of total data set
+OFFSET = 0;          # Offset in dataset (optimisation)
+TEST = 0.2           # Percentage of rest data after traning
 
 # MONGODB 
-MONGOCONFIG = 'mongodb://RUNEikMONKEY92:MonkeyMisojsoaji281907oklj8712@2.104.113.176:27017/ecg_db'
+MONGOCONFIG = 'ssss'
 
 # global configuration for layers
 CONFIG = {
@@ -19,9 +20,9 @@ CONFIG = {
     'amountActiveCols': 0.02,       # Percentage of columns active in a layer
     'potentialRadius': 0.0125,      # Amount of the source seen by columns
     'inhibition': True,             # Enable the spares distribution by inhibitory effects
-    'boostStrength': 0.5,           # Enable a little boost
+    'boostStrength': 0.1,           # Enable a little boost
     'cellsPerColumn': 4,            # How many cells in each mini-columns
-    'numIterations': 35000          # Number of iterations
+    'numIterations': 10000          # Number of iterations
 }
 
 # set config for l1

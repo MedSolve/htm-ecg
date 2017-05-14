@@ -74,7 +74,7 @@ def test_cb(row, TESTNUM):
             ]
         )
 
-getFromMongo(False, CONFIG_L1['uintType'], train_cb, test_cb)
+getFromMongo(CONFIG_L1['uintType'], train_cb, test_cb)
 
 # print "DONE using {} test and {} traning samples".format(TESTLENGTH, STEPS)
 # print "on {} subjects of {}".format(DATA_NUM_SUBJECTS,

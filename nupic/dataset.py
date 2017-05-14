@@ -2,7 +2,8 @@ import csv
 import numpy as np
 import math
 from pymongo import MongoClient
-from config import SOURCE, TRANING, TEST, MONGOCONFIG
+from config import SOURCE, TRANING, TEST, MONGOCONFIG, OFFSET
+
 
 def getRealData():
     'Gets real dataset and store it in MongoDB'
@@ -54,7 +55,8 @@ def getRealData():
 
     print 'Data Saved to MongoDB'
 
-def getFromMongo(optimise, datatype, train_cb, test_cb):
+
+def getFromMongo(datatype, train_cb, test_cb):
     'Gets test and traning data from mongodb'
 
     # connect and get db
@@ -65,30 +67,30 @@ def getFromMongo(optimise, datatype, train_cb, test_cb):
     # prepare to read only a specfic number of persons
     persons = collection.distinct('bucketIdx')
     length_persons = len(persons)
-    trainto_person = int(math.ceil(TRANING * length_persons))
-    rest = int(math.ceil((length_persons - trainto_person) * TEST))
+    dataset_length = int(math.ceil(TRANING * length_persons))
+
+    # calculate amount for training and test (rest)
+    trainto_person = dataset_length - int(math.ceil(TEST * dataset_length))
 
     print "a total number of {} subjects where detected".format(length_persons)
-    print "number of subjects for traning {} and test {}".format(trainto_person, rest)
-
-    # check if optimisation data set should be set
-    if optimise is True:
-        spanrest = [trainto_person + rest + 1, length_persons]
-    else:
-        spanrest = [trainto_person + 1, trainto_person + rest]
+    print "number of subjects for traning and test {}".format(dataset_length)
 
     # find the dataset of persons to loop
-    loop_these_persons = persons[:trainto_person] + persons[spanrest[0]:spanrest[1]]
+    loop_these_persons = persons[OFFSET:dataset_length]
+
+    # holder for test source
+    test_source = []
 
     # find all the training data
     for person in loop_these_persons:
 
         # get data curser
-        curs = collection.find({'bucketIdx': person}, no_cursor_timeout=True).batch_size(5)
+        curs = collection.find({'bucketIdx': person},
+                               no_cursor_timeout=True).batch_size(5)
 
         # prepare for each in row point in the person
         length = curs.count()
-        trainto = int(math.ceil(TRANING * length))
+        trainto = length - int(math.ceil(TEST * length))
         counter = 1
 
         # print feedback
@@ -111,10 +113,22 @@ def getFromMongo(optimise, datatype, train_cb, test_cb):
             if counter <= trainto:
                 train_cb(person_data, counter)
             else:
-                test_cb(person_data, counter)
+                test_source.append(person_data)
+
+            # increase the counter
+            counter = counter + 1
+
+        # reset counter
+        counter = 0
+
+        # loop throughout test data
+        for sample in test_source:
+
+            # perform test
+            test_cb(sample, counter)
 
             # increase the counter
             counter = counter + 1
 
     # return specifics
-    #return [test, training, length_persons, trainto_person + rest]
+    # return [test, training, length_persons, trainto_person + rest]
