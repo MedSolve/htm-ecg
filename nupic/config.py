@@ -11,7 +11,7 @@ TRANING = 0.8       # Percentage of total data set
 TEST = 0.5          # Percentage of rest data after traning
 
 # MONGODB 
-MONGOCONFIG = 'mongodb://xx:xx@localhost:27017/ecg_db'
+MONGOCONFIG = 'mongodb://RUNEikMONKEY92:MonkeyMisojsoaji281907oklj8712@2.104.113.176:27017/ecg_db'
 
 # global configuration for layers
 CONFIG = {
