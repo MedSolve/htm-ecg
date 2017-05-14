@@ -8,8 +8,7 @@ def getRealData():
     'Gets real dataset and store it in MongoDB'
 
     # connect and get db
-    client = MongoClient(MONGOCONFIG)
-    database = client.ecg_db
+    database = MongoClient(MONGOCONFIG)
     collection = database.ecg_collection
 
     with open(SOURCE, 'rb') as csvfile:
@@ -58,8 +57,7 @@ def getFromMongo(optimise, datatype, train_cb, test_cb):
     'Gets test and traning data from mongodb'
 
     # connect and get db
-    client = MongoClient(MONGOCONFIG)
-    database = client.ecg_db
+    database = MongoClient(MONGOCONFIG)
     collection = database.ecg_collection
 
     # prepare to read only a specfic number of persons
