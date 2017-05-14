@@ -76,7 +76,7 @@ def getFromMongo(datatype, train_cb, test_cb):
     print "number of subjects for traning and test {}".format(dataset_length)
 
     # find the dataset of persons to loop
-    loop_these_persons = persons[OFFSET:dataset_length]
+    loop_these_persons = persons[OFFSET:dataset_length+OFFSET]
 
     # holder for test source
     test_source = []
