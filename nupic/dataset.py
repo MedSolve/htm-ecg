@@ -121,14 +121,14 @@ def getFromMongo(datatype, train_cb, test_cb):
         # reset counter
         counter = 0
 
-        # loop throughout test data
-        for sample in test_source:
+    # loop throughout test data
+    for sample in test_source:
 
-            # perform test
-            test_cb(sample, counter)
+        # perform test
+        test_cb(sample, counter)
 
-            # increase the counter
-            counter = counter + 1
+        # increase the counter
+        counter = counter + 1
 
     # return specifics
     # return [test, training, length_persons, trainto_person + rest]

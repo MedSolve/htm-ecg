@@ -133,7 +133,7 @@ class TopNode(object):
                 "actValue": actValue
             },
             learn=True,
-            infer=False
+            infer=True
         )
 
         # returns that learning has been done
