@@ -14,10 +14,10 @@ def train_cb(row, TESTNUM):
     print "Performing traning {}".format(TESTNUM)
 
     # run learning and get cols as output
-    out_one = LAYERONE.learn(row['raw'])
+    out_one = LAYERONE.learn(row['raw'], True)
 
     # get prediction from trained layer
-    out_two = LAYERONE.learn(out_one)
+    out_two = LAYERTWO.learn(out_one, False)
 
     # calculate meta
     bucketIdx = row['bucketIdx']

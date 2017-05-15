@@ -22,7 +22,7 @@ CONFIG = {
     'inhibition': True,             # Enable the spares distribution by inhibitory effects
     'boostStrength': 0.1,           # Enable a little boost
     'cellsPerColumn': 4,            # How many cells in each mini-columns
-    'numIterations': 10000          # Number of iterations
+    'numIterations': 1          # Number of iterations
 }
 
 # set config for l1

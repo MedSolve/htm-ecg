@@ -56,7 +56,7 @@ class Layer(object):
         )
 
     # learn the pools based upon the data
-    def learn(self, data):
+    def learn(self, data, colOut):
         """learn the spatical and temporal pooling on the dataset"""
 
         # run the spatial pooling
@@ -73,11 +73,14 @@ class Layer(object):
         # get the active cells
         cells = self.tm.getActiveCells()
 
-        return bitmapSDR(
-            self.tm.mapCellsToColumns(cells),
-            self.colsize,
-            self.datatype
-        )
+        if colOut is True:
+            return bitmapSDR(
+                self.tm.mapCellsToColumns(cells),
+                self.colsize,
+                self.datatype
+            )
+        else:
+            return cells
 
     # predict the pools based upon the data
     def predict(self, data, colOut):
