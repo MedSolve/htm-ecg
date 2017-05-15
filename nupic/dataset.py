@@ -86,7 +86,7 @@ def getFromMongo(datatype, train_cb, test_cb):
 
         # get data curser
         curs = collection.find({'bucketIdx': person},
-                               no_cursor_timeout=True).batch_size(5)
+                               no_cursor_timeout=True).batch_size(2)
 
         # prepare for each in row point in the person
         length = curs.count()

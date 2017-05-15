@@ -7,12 +7,12 @@ SAVEPATH = './data/nupi.res.csv'
 SOURCE = './data/nupi.source.csv'
 
 # Data source split
-TRANING = 0.04       # Percentage of total data set
+TRANING = 0.05       # Percentage of total data set
 OFFSET = 0;          # Offset in dataset (optimisation)
 TEST = 0.2           # Percentage of rest data after traning
 
 # MONGODB 
-MONGOCONFIG = 'ssss'
+MONGOCONFIG = 'ss'
 
 # global configuration for layers
 CONFIG = {

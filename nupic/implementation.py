@@ -6,6 +6,7 @@ from nupic.research.spatial_pooler import SpatialPooler
 from nupic.research.temporal_memory import TemporalMemory
 from nupic.algorithms.sdr_classifier_factory import SDRClassifierFactory
 
+
 def bitmapSDR(source, size, datatype):
     """Creates and SDR from bitmap source"""
 
@@ -33,6 +34,7 @@ class Layer(object):
         # save colsize and data type
         self.colsize = colsize
         self.datatype = config['uintType']
+        self.numIterations = config['numIterations']
 
         # setup the pooler and reference to active column holder
         self.sp = SpatialPooler(
@@ -58,14 +60,24 @@ class Layer(object):
         """learn the spatical and temporal pooling on the dataset"""
 
         # run the spatial pooling
-        self.sp.compute(
-            data,
-            True,
-            self.activeColumns
-        )
+        for i in range(self.numIterations):
+            self.sp.compute(
+                data,
+                True,
+                self.activeColumns
+            )
 
         # run the temporal pooling
         self.tm.compute(self.activeColumns, True)
+
+        # get the active cells
+        cells = self.tm.getActiveCells()
+
+        return bitmapSDR(
+            self.tm.mapCellsToColumns(cells),
+            self.colsize,
+            self.datatype
+        )
 
     # predict the pools based upon the data
     def predict(self, data, colOut):
@@ -118,7 +130,7 @@ class TopNode(object):
                 "actValue": actValue
             },
             learn=True,
-            infer=True
+            infer=False
         )
 
         # returns that learning has been done
@@ -132,7 +144,7 @@ class TopNode(object):
             recordNum=recordNum,
             patternNZ=patternNZ,
             classification={
-                "bucketIdx": None, # nonetype do not work so supply 0 info
+                "bucketIdx": None,  # nonetype do not work so supply 0 info
                 "actValue": None   # nonetype do not work so supply 0 info
             },
             learn=False,

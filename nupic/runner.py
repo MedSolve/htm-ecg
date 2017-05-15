@@ -13,38 +13,19 @@ def train_cb(row, TESTNUM):
 
     print "Performing traning {}".format(TESTNUM)
 
-    # perform the given iterations
-    for i in range(CONFIG_L1['numIterations']):
+    # run learning and get cols as output
+    out_one = LAYERONE.learn(row['raw'])
 
-        # run learning and get cols as output
-        LAYERONE.learn(row['raw'])
+    # get prediction from trained layer
+    out_two = LAYERONE.learn(out_one)
 
-    # perform the given iterations
-    # CONFIG_l1 contains globally set numIterations
-    for i in range(CONFIG_L1['numIterations']):
+    # calculate meta
+    bucketIdx = row['bucketIdx']
+    actValue = row['actValue']
+    recordNum = row['recordNum']
 
-        # get prediction from trained layer
-        out_one = LAYERONE.predict(row['raw'], True)
-
-        # run learning and get cols as output
-        LAYERTWO.learn(out_one)
-
-    # perform the given iterations
-    # CONFIG_l1 contains globally set numIterations
-    for i in range(CONFIG_L1['numIterations']):
-
-        # get prediction from trained layers
-        out_one = LAYERONE.predict(row['raw'], True)
-        out_two = LAYERTWO.predict(out_one, False)
-
-        # calculate meta
-        bucketIdx = row['bucketIdx']
-        actValue = row['actValue']
-        recordNum = row['recordNum']
-
-        # perform classification
-        CLASSIFIER.learn(out_two, bucketIdx, actValue, recordNum)
-
+    # perform classification
+    CLASSIFIER.learn(out_two, bucketIdx, actValue, recordNum)
 
 # Open result write
 WRITER = csv.writer(open(SAVEPATH, 'w'))
@@ -52,7 +33,6 @@ WRITER = csv.writer(open(SAVEPATH, 'w'))
 # Set labelse
 WRITER.writerow(['Test number', 'Old BucketIndex', 'BucketIndex',
                  'Classification', 'Probability'])
-
 
 def test_cb(row, TESTNUM):
     'test on the current row'
