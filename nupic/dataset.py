@@ -4,7 +4,6 @@ import math
 from pymongo import MongoClient
 from config import SOURCE, TRANING, TEST, MONGOCONFIG, OFFSET
 
-
 def getRealData():
     'Gets real dataset and store it in MongoDB'
 

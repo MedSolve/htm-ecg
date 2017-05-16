@@ -12,7 +12,7 @@ OFFSET = 0;          # Offset in dataset (optimisation)
 TEST = 0.2           # Percentage of rest data after traning
 
 # MONGODB 
-MONGOCONFIG = 'ss'
+MONGOCONFIG = 'xx'
 
 # global configuration for layers
 CONFIG = {
@@ -20,7 +20,7 @@ CONFIG = {
     'amountActiveCols': 0.02,       # Percentage of columns active in a layer
     'potentialRadius': 0.0125,      # Amount of the source seen by columns
     'inhibition': True,             # Enable the spares distribution by inhibitory effects
-    'boostStrength': 0.1,           # Enable a little boost
+    'boostStrength': 0,             # Enable a little boost
     'cellsPerColumn': 4,            # How many cells in each mini-columns
     'numIterations': 1          # Number of iterations
 }
